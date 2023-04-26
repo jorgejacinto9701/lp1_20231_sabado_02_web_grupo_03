@@ -1,7 +1,12 @@
 package dao;
 
-public interface AutorDAO {
+import entity.Autor;
 
+
+public interface AutorDAO {
+	
+
+	public abstract int insertaAutor(Autor obj);
 	
 }
 

@@ -4,6 +4,8 @@ import dao.AlumnoDAO;
 import dao.AutorDAO;
 import dao.DevolucionDAO;
 import dao.EditorialDAO;
+import dao.GradoDAO;
+
 import dao.LibroDAO;
 import dao.PrestamoDAO;
 import dao.ProveedorDAO;
@@ -24,6 +26,8 @@ import dao.impl.MySqlSalaDAO;
 import dao.impl.MySqlSeparacionDAO;
 import dao.impl.MySqlTesisDAO;
 import dao.impl.MySqlUsuarioDAO;
+import dao.impl.MySqlGradoDAO;
+
 
 public class FabricaMysql extends Fabrica {
 
@@ -39,6 +43,10 @@ public class FabricaMysql extends Fabrica {
 	public PrestamoDAO getPrestamoDAO() {		return new MySqlPrestamoDAO(); 	}
 	public SeparacionDAO getSeparacionDAO() {	return new MySqlSeparacionDAO(); 	}
 	public DevolucionDAO getDevolucionDAO() {	return new MySqlDevolucionDAO(); 	}
+	public GradoDAO getGradoDAO() {				return new MySqlGradoDAO(); 	}
+
+
+	
 
 	
 }
