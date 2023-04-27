@@ -12,8 +12,8 @@ import dao.RevistaDAO;
 import dao.SalaDAO;
 import dao.SeparacionDAO;
 import dao.TesisDAO;
+import dao.PaisDAO;
 import dao.UsuarioDAO;
-import dao.impl.MySqlGradoDAO;
 
 
 public abstract class Fabrica {
@@ -27,28 +27,23 @@ public abstract class Fabrica {
 	public abstract GradoDAO getGradoDAO();
 	public abstract EditorialDAO getEditorialDAO();
 	public abstract LibroDAO getLibroDAO();
-	public abstract ProveedorDAO getProveedorDAO();
+	public abstract ProveedorDAO getProveedor();
 	public abstract RevistaDAO getRevistaDAO();
 	public abstract SalaDAO getSalaDAO();
 	public abstract TesisDAO getTesisDAO();
 	public abstract DevolucionDAO getDevolucionDAO();
 	public abstract PrestamoDAO getPrestamoDAO();
 	public abstract SeparacionDAO getSeparacionDAO();
-	
+	public abstract PaisDAO getPais();
 	public static Fabrica getFabrica(int tipo){
 		Fabrica salida = null;
 		switch(tipo){
 			case MYSQL: 
 				salida = new FabricaMysql();
 				break;
-			
 		}
 		return salida;
 	}
-	public MySqlGradoDAO getGrado() {
-		// TODO Auto-generated method stub
-		return new MySqlGradoDAO();
 	}
 	
 	
-}
