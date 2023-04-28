@@ -7,6 +7,7 @@ import dao.EditorialDAO;
 import dao.GradoDAO;
 
 import dao.LibroDAO;
+import dao.ModalidadDAO;
 import dao.PrestamoDAO;
 import dao.ProveedorDAO;
 import dao.RevistaDAO;
@@ -20,6 +21,7 @@ import dao.impl.MySqlAutorDAO;
 import dao.impl.MySqlDevolucionDAO;
 import dao.impl.MySqlEditorialDAO;
 import dao.impl.MySqlLibroDAO;
+import dao.impl.MySqlModalidadDAO;
 import dao.impl.MySqlPrestamoDAO;
 import dao.impl.MySqlProveedorDAO;
 import dao.impl.MySqlRevistaDAO;
@@ -48,6 +50,22 @@ public class FabricaMysql extends Fabrica {
 	public GradoDAO getGradoDAO() {				return new MySqlGradoDAO(); 	}
 	public PaisDAO getPais() {
 		return new MysqlPais();
+	}
+	@Override
+	public RevistaDAO getRevista() {
+		// TODO Auto-generated method stub
+		return new MySqlRevistaDAO();
+		
+	}
+	@Override
+	public ModalidadDAO getModalidad() {
+		// TODO Auto-generated method stub
+		return new MySqlModalidadDAO();
+	}
+	@Override
+	public SalaDAO getSalaDAO1() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

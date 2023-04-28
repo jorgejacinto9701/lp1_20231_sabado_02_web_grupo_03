@@ -6,6 +6,7 @@ import dao.DevolucionDAO;
 import dao.EditorialDAO;
 import dao.GradoDAO;
 import dao.LibroDAO;
+import dao.ModalidadDAO;
 import dao.PrestamoDAO;
 import dao.ProveedorDAO;
 import dao.RevistaDAO;
@@ -15,8 +16,6 @@ import dao.TesisDAO;
 import dao.PaisDAO;
 import dao.UsuarioDAO;
 import dao.impl.MySqlSalaDAO;
-
-
 public abstract class Fabrica {
 
 	public static final int MYSQL = 1;
@@ -29,8 +28,14 @@ public abstract class Fabrica {
 	public abstract EditorialDAO getEditorialDAO();
 	public abstract LibroDAO getLibroDAO();
 	public abstract ProveedorDAO getProveedor();
+
 	public abstract RevistaDAO getRevistaDAO();
 	public abstract MySqlSalaDAO getSalaDAO();
+
+	public abstract RevistaDAO getRevista();
+	public abstract ModalidadDAO getModalidad();
+	public abstract SalaDAO getSalaDAO1();
+
 	public abstract TesisDAO getTesisDAO();
 	public abstract DevolucionDAO getDevolucionDAO();
 	public abstract PrestamoDAO getPrestamoDAO();
