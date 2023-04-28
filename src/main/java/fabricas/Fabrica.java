@@ -14,6 +14,7 @@ import dao.SeparacionDAO;
 import dao.TesisDAO;
 import dao.PaisDAO;
 import dao.UsuarioDAO;
+import dao.impl.MySqlSalaDAO;
 
 
 public abstract class Fabrica {
@@ -29,7 +30,7 @@ public abstract class Fabrica {
 	public abstract LibroDAO getLibroDAO();
 	public abstract ProveedorDAO getProveedor();
 	public abstract RevistaDAO getRevistaDAO();
-	public abstract SalaDAO getSalaDAO();
+	public abstract MySqlSalaDAO getSalaDAO();
 	public abstract TesisDAO getTesisDAO();
 	public abstract DevolucionDAO getDevolucionDAO();
 	public abstract PrestamoDAO getPrestamoDAO();

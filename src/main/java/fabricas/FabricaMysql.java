@@ -37,7 +37,7 @@ public class FabricaMysql extends Fabrica {
 	public AlumnoDAO getAlumnoDAO() {			return new MySqlAlumnoDAO(); 	}
 	public AutorDAO getAutorDAO() {				return new MySqlAutorDAO(); 	}
 	public TesisDAO getTesisDAO() {				return new MySqlTesisDAO(); 	}
-	public SalaDAO getSalaDAO() {				return new MySqlSalaDAO(); 	}
+	public MySqlSalaDAO getSalaDAO() {				return new MySqlSalaDAO(); 	}
 	public RevistaDAO getRevistaDAO() {			return new MySqlRevistaDAO(); 	}
 	public LibroDAO getLibroDAO() {				return new MySqlLibroDAO(); 	}
 	public ProveedorDAO getProveedor() {		return new MySqlProveedorDAO(); 	}
