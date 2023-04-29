@@ -1,6 +1,5 @@
 package dao;
 
-import entity.Proveedor;
 import entity.Sala;
 
 public interface SalaDAO {

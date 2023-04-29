@@ -1,7 +1,6 @@
 package dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.logging.Logger;
 
@@ -29,8 +28,8 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 			pstm.setString(3, obj.getDireccion());
 			pstm.setString(4, obj.getCelular());
 			pstm.setString(5, obj.getContacto());
-			pstm.setString(6, obj.getEstado());
-			pstm.setDate(7, (Date) obj.getFechaRegistro());
+			pstm.setInt(6, obj.getEstado());
+			pstm.setTimestamp(7, obj.getFechaRegistro());
 			pstm.setInt(8, obj.getPais().getIdPais());
 			
 			log.info(">>>> " + pstm);

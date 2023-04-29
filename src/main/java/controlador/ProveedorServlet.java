@@ -2,7 +2,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +31,6 @@ public class ProveedorServlet extends HttpServlet {
 			String vdireccion = req.getParameter("direccion");
 			String vcelular = req.getParameter("celular");
 			String vcontacto = req.getParameter("contacto");
-			String vestado = req.getParameter("estado");
 			String vpais = req.getParameter("pais");
 
 			Pais objPais = new Pais();
@@ -43,8 +42,8 @@ public class ProveedorServlet extends HttpServlet {
 			objProveedor.setDireccion(vdireccion);
 			objProveedor.setCelular(vcelular);
 			objProveedor.setContacto(vcontacto);
-			objProveedor.setEstado(vestado);
-			objProveedor.setFechaRegistro(new Date(System.currentTimeMillis()));
+			objProveedor.setEstado(1);
+			objProveedor.setFechaRegistro(new Timestamp(System.currentTimeMillis()));
 			objProveedor.setPais(objPais);
 			
 			Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);

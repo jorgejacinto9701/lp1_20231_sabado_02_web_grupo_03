@@ -5,12 +5,11 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.logging.Logger;
 
-import dao.ProveedorDAO;
-import entity.Proveedor;
+import dao.SalaDAO;
 import entity.Sala;
 import util.MySqlDBConexion;
 
-public class MySqlSalaDAO implements ProveedorDAO{
+public class MySqlSalaDAO implements SalaDAO{
 
 
 	private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
@@ -48,10 +47,6 @@ public class MySqlSalaDAO implements ProveedorDAO{
 		return salida;
 	}
 
-	@Override
-	public int insertProveedor(Proveedor obj) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 	
 }

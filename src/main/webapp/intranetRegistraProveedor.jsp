@@ -16,7 +16,8 @@
 <body>
 
 
-<div class="container">
+<jsp:include page="intranetCabecera.jsp" />
+<div class="container" style="margin-top: 4%">
 <h1>Registra Proveedor</h1>
 
 	<form id="id_form"> 
@@ -37,14 +38,10 @@
 				<label class="control-label" for="id_celular">Celular</label>
 				<input class="form-control" type="text" id="id_celular" name="celular" placeholder="Ingrese su número de Celular" maxlength="9">
 			</div>	
-		<div class="form-group">
+			<div class="form-group">
 				<label class="control-label" for="id_contacto">Contacto</label>
 				<input class="form-control" type="text" id="id_contacto" name="contacto" placeholder="Ingrese nombre de Contacto">
 			</div>	
-				<div class="form-group">
-				<label class="control-label" for="id_estado">Estado</label>
-				<input class="form-control" type="text" id="id_estado" name="estado" placeholder="Ingrese Estado" maxlength="1">
-			</div>		
 			<div class="form-group">
 				<label class="control-label" for="id_Pais"> Pais </label> <select
 					class="form-control" id="id_pais" name="pais">
@@ -97,7 +94,7 @@ $(document).ready(function() {
                     },
                     regexp: {
                         regexp: /^[0-9]{11}$/,
-                        message: 'El dni tiene 11 dígitos'
+                        message: 'El ruc tiene 11 dígitos'
                     },
         		}
         	},

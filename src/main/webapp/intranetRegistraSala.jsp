@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="esS" >
 <head>
 <meta charset="UTF-8">
@@ -17,9 +17,8 @@
 </head>
 <body>
 
-
-
-<div class="container">
+<jsp:include page="intranetCabecera.jsp" />
+<div class="container" style="margin-top: 4%">
 <h1>Registra  salas</h1>  <h3>Autor: Miguel Rivera</h3>
 
 	<form id="id_form"> 
@@ -40,14 +39,6 @@
 				<label class="control-label" for="id_celular">Recursos</label>
 				<input class="form-control" type="text" id="id_Recursos" name="Recusos" placeholder="Ingrese su recursos" maxlength="9">
 			</div>	
-		   <div class="form-group">
-				<label class="control-label" for="id_fecha">Fecha Registro</label>
-				<input class="form-control" type="date" id="id_fecha" name="fecha" placeholder="Ingrese la fecha">
-			</div>	
-				<div class="form-group">
-				<label class="control-label" for="id_estado">Estado</label>
-				<input class="form-control" type="text" id="id_estado" name="estado" placeholder="Ingrese Estado" maxlength="1">
-			</div>		
 			<div class="form-group">
 				<label class="control-label" for="id_sede">Sede </label> <select
 					class="form-control" id="id_sede" name="Sede">
@@ -198,7 +189,7 @@ $(document).ready(function() {
 
 	$.getJSON("cargaSede", {}, function (data){
 		$.each(data, function(index, item){
-			$("#id_sede").append("<option value=" +  item.idsede +" >" +  item.iso + item.nombre + "</option>");
+			$("#id_sede").append("<option value=" +  item.idSede +" >" + item.nombre + "</option>");
 		});	
 	});		
 
