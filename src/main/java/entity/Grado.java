@@ -9,5 +9,9 @@ public class Grado {
 
 	private int idGrado;
 	private String descripcion;
+	public void setNombre(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

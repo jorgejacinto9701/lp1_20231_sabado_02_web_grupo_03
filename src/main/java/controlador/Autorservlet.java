@@ -19,7 +19,7 @@ import entity.Grado;
 import entity.Respuesta;
 import fabricas.Fabrica;
 
-@WebServlet("/registraAutor")
+@WebServlet("/registraAutor")	
 public class Autorservlet extends HttpServlet  {
 
 	private static final long serialVersionUID = 1L;

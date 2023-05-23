@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import dao.GradoDAO;	
 import entity.Grado;
-import dao.GradoDAO;
 import fabricas.Fabrica;
 
 @WebServlet("/cargaGrado")
