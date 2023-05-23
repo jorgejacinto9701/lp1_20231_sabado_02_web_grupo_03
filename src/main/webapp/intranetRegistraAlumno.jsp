@@ -23,6 +23,7 @@
 <div class="container" style="margin-top: 4%">
 <h4>Registra Alumno</h4>
 
+
 <form action="registraAlumno" id="id_form"> 
 			<input type="hidden" name="metodo" value="registra">	
 			<div class="form-group">
@@ -195,7 +196,61 @@ $(document).ready(function() {
 
 
 	
-</div>
+=======
+		<form action="insertaAlumno" id="id_form"> 
+						<input type="hidden" name="metodo" value="registra">	
+						<div class="form-group">
+								<label class="control-label" for="id_nombre">Nombres</label>
+								<input class="form-control" type="text" id="id_nombre" name="nombre" placeholder="Ingrese el nombre">
+						</div>
+						<div class="form-group">
+								<label class="control-label" for="id_apellido">Apellidos</label>
+								<input class="form-control" type="text" id="id_apellido" name="apellido" placeholder="Ingrese el apellido">
+						</div>
+						<div class="form-group">
+								<label class="control-label" for="id_fecha">Fecha Nacimiento</label>
+								<input class="form-control" type="text" id="id_fecha" name="fecha" placeholder="Ingrese la fecha">
+						</div>
+						<div class="form-group">
+								<label class="control-label" for="id_correo">Correo</label>
+								<input class="form-control" type="text" id="id_correo" name="correo" placeholder="Ingrese el correo">
+						</div>
+						<div class="form-group">
+								<button type="submit" class="btn btn-primary" >Crea Alumno</button>
+						</div>
+		</form>
+>>>>>>> branch 'master' of https://github.com/jorgejacinto9701/lp1_20231_sabado_02_web_grupo_03.git
+
+
+<script type="text/javascript">
+$("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
+    $("#success-alert").slideUp(500);
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#id_form').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        
+        fields:{
+        	
+        }
+  
+    });
+
+    // Validate the form manually
+    $('#validateBtn').click(function() {
+        $('#id_form').bootstrapValidator('validate');
+    });
+});
+</script>
+
 </body>
 </html>
 
