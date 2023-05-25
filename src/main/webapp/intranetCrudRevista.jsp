@@ -233,13 +233,13 @@
 						{data: "idRevista",className:'text-center'},
 						{data: "nombre",className:'text-center'},
 						{data: "frecuencia",className:'text-center'},
-						{data: "fechaCreacion",className:'text-center'},
+						{data: "formatoCreacion",className:'text-center'},
 						{data: function(row, type, val, meta){
 							return row.estado == 1 ? "Activo" : "Inactivo";  
 						},className:'text-center'},
 						{data: "modalidad.descripcion",className:'text-center'},
 						{data: function(row, type, val, meta){
-						return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idRevista + '\',\'' +  row.nombre   + '\',\'' +  row.frecuencia + '\',\'' +  row.fechaCreacion + '\',\'' +  row.estado + '\',\'' +  row.modalidad.idModalidad +'\');">Editar</button>';  
+						return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idRevista + '\',\'' +  row.nombre   + '\',\'' +  row.frecuencia + '\',\'' +  row.formatoCreacion + '\',\'' +  row.estado + '\',\'' +  row.modalidad.idModalidad +'\');">Editar</button>';  
 						},className:'text-center'},
 						{data: function(row, type, val, meta){
 						return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idRevista +'\');" >E.Lógica</button>';
@@ -312,14 +312,14 @@
 		});	
 		
 		function verFormularioActualiza(idRevista, nombre, frecuencia, fechaCreacion, estado, modalidad){
-			console.log(">>> verFormularioActualiza");
+			console.log(">> verFormularioActualiza >> " + idRevista);
 			$("#id_div_modal_actualiza").modal("show");
 			$("#idRevista").val(idRevista);
 			$("#id_act_nombre").val(nombre);
 			$("#id_act_frecuencia").val(frecuencia);
-			$("id_act_fechaCreacion").val(fechaCreacion);
-			$("id_act_estado").val(estado);
-			$("id_act_modalidad").val(modalidad);
+			$("#id_act_fechaCreacion").val(fechaCreacion);
+			$("#id_act_estado").val(estado);
+			$("#id_act_modalidad").val(modalidad);
 		}
 		
 		

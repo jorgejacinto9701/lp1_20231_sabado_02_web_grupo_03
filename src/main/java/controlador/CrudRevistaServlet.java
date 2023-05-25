@@ -78,7 +78,6 @@ public class CrudRevistaServlet extends HttpServlet {
 		String vnombre = req.getParameter("nombre");
 		String vfrecuencia = req.getParameter("frecuencia");
 		String vfecha = req.getParameter("fechaCreacion");
-		String vestado = req.getParameter("estado");
 		String vmodalidad = req.getParameter("modalidad");
 		
 		Modalidad objModalidad = new Modalidad();
@@ -90,18 +89,18 @@ public class CrudRevistaServlet extends HttpServlet {
 		objRevista.setFrecuencia(vfrecuencia);
 		objRevista.setFechaCreacion(Date.valueOf(vfecha));
 		objRevista.setFechaRegistro(new Timestamp(System.currentTimeMillis()));
-		objRevista.setEstado(Integer.parseInt(vestado));
+		objRevista.setEstado(1);
 		objRevista.setModalidad(objModalidad);
 		
 		
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
 		RevistaDAO dao = fabrica.getRevista();
 	
-		int insertados = dao.actualizaRevista(objRevista);
+		int actualizados = dao.actualizaRevista(objRevista);
 		List<Revista> lista = dao.listaRevista("%");
 		
 		Respuesta objRespuesta = new Respuesta();
-		if (insertados > 0) {
+		if (actualizados > 0) {
 			objRespuesta.setMensaje("Actualización exitosa");
 		}else {
 			objRespuesta.setMensaje("Error al actualizar");
