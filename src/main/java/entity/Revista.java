@@ -16,5 +16,5 @@ public class Revista {
 	private Timestamp fechaRegistro;
 	private int estado;
 	private Modalidad modalidad;
-
+    private String formatoCreacion ;
 }
