@@ -2,6 +2,7 @@ package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
 import java.util.logging.Logger;
 
 import dao.RevistaDAO;
@@ -41,5 +42,29 @@ private static Logger log = Logger.getLogger(MySqlRevistaDAO.class.getName());
 		}
 		
 		return salida;
+	}
+
+	@Override
+	public List<Revista> listaRevista(String filtro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int actualizaRevista(Revista obj) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int eliminaRevista(int idRevista) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Revista buscaRevista(int idRevista) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

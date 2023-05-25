@@ -12,10 +12,7 @@ public class Respuesta {
 	private String mensaje;
 
 
-	public void setDatos(List<Autor> lista) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	private List<?> datos;
 	
