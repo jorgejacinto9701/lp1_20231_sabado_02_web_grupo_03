@@ -19,7 +19,6 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 	
 	public int insertProveedor(Proveedor  obj) {
 		int salida = -1;
-		
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		try {

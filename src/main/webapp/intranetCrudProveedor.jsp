@@ -22,7 +22,6 @@
 
 <jsp:include page="intranetCabecera.jsp" />
 
-
 	<div class="container">
 		<h1>CRUD Proveedor</h1>
 

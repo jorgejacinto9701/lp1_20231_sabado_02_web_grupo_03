@@ -212,9 +212,4 @@ public class CrudProveedorServlet extends HttpServlet {
 	PrintWriter out = resp.getWriter();
 	out.println(json);
 	}
-			
-			
-	
-	
-
 }
