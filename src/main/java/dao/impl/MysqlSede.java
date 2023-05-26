@@ -35,7 +35,6 @@ public class MysqlSede implements SedeDAO{
 				obj = new Sede();
 				obj.setIdSede(rs.getInt(1));
 				obj.setNombre(rs.getString(2));
-				obj.setNombre(rs.getString(3));
 				lista.add(obj);
 			}
 		} catch (Exception e) {
