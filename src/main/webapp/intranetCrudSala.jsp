@@ -153,8 +153,6 @@
 													<input class="form-control" id="id_act_frecuencia" name="frecuencia" placeholder="Ingrese la frecuencia" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 	
-		                                    
-		                                    </div> 	
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_estado">Estado</label>
 		                                        <div class="col-lg-8">
@@ -187,9 +185,7 @@
 					</div>
 				</div>
 			</div>
-		</div>	
-		<!-- FIN MODAL DE ACTUALIZA -->		
-	</div>
+		
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
 			var vfiltro = $("#id_filtro").val();
@@ -490,7 +486,8 @@
 			    });
 			}
 		</script>
-
+	</div>
+</div>
 </body>
 </html>
 
