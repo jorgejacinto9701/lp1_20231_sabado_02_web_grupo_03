@@ -2,7 +2,6 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.logging.Logger;
@@ -15,15 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-
 import dao.SalaDAO;
-import dao.SedeDAO;
 import entity.Respuesta;
 import entity.Sala;
 import entity.Sede;
-import entity.Sala;
 import fabricas.Fabrica;
-import entity.Modalidad;
 @WebServlet("/crudSala")
 public class CrudSalaServlet extends HttpServlet {
 
@@ -60,10 +55,10 @@ public class CrudSalaServlet extends HttpServlet {
 	protected void lista(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		log.info(">>> crudSala >>> lista");
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
-		SedeDAO dao = fabrica.getSedeDAO();
+		SalaDAO dao = fabrica.getSalaDAO();
 		
 		String filtro = req.getParameter("filtro");
-		List<Sala> lista =  dao.listaSala11(filtro + "%");
+		List<Sala> lista =  dao.listaSala(filtro + "%");
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(lista);
@@ -90,8 +85,8 @@ public class CrudSalaServlet extends HttpServlet {
 		
 		Sala objSala = new Sala();
 		objSala.setIdSala(Integer.parseInt(vidSala));
-		objSala.setNumero(vnumero);
 		objSala.setPiso(Integer.parseInt(vpiso));
+		objSala.setNumero(vnumero);
 		objSala.setNumAlumnos(Integer.parseInt(vnumAlumnos));
 		objSala.setRecursos(vrecursos);
 		objSala.setEstado(Integer.parseInt(vestado));
@@ -103,8 +98,8 @@ public class CrudSalaServlet extends HttpServlet {
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
 		SalaDAO dao = fabrica.getSalaDAO();
 	
-		int actualizados = dao.actualizaSala1(objSala);
-		List<Sala> lista = dao.listaSala11("%");
+		int actualizados = dao.actualizaSala(objSala);
+		List<Sala> lista = dao.listaSala("%");
 		
 		Respuesta objRespuesta = new Respuesta();
 		if (actualizados > 0) {
@@ -126,31 +121,31 @@ public class CrudSalaServlet extends HttpServlet {
 	protected void inserta(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		log.info(">>> crudSala >>> inserta");
 		
-		String vidSala = req.getParameter("idSala");
 		String vpiso = req.getParameter("piso");
 		String vnumAlumnos = req.getParameter("numAlumnos");
 		String vrecursos = req.getParameter("recursos");
 		String vestado = req.getParameter("estado");
 		String vsede = req.getParameter("msede");
-
+		String vnumero = req.getParameter("numero");
+		
 		Sede objSede = new Sede();
 		objSede.setIdSede(Integer.parseInt(vsede));
 		
 		
 		Sala objSala = new Sala();
+		objSala.setPiso(Integer.parseInt(vpiso));
 		objSala.setNumero(vnumero);
-		objSala.setPiso(vpiso);
-		objSala.setNumAlumnos(vnumAlumnos);
+		objSala.setNumAlumnos(Integer.parseInt(vnumAlumnos));
 		objSala.setRecursos(vrecursos);
-		objSala.setEstado(1);
-		objSala.setSede(objSede);
+		objSala.setEstado(Integer.parseInt(vestado));
+		objSala.setFechaRegistro(new Timestamp(System.currentTimeMillis()));
 		
 		
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
 		SalaDAO dao = fabrica.getSalaDAO();
 	
 		int insertados = dao.insertaSala(objSala);
-		List<Sala> lista = dao.listaSala11("%");
+		List<Sala> lista = dao.listaSala("%");
 		
 		Respuesta objRespuesta = new Respuesta();
 		if (insertados > 0) {
@@ -174,12 +169,12 @@ public class CrudSalaServlet extends HttpServlet {
 	
 		String idSala = req.getParameter("idSala");
 		
-		Sala objSala = dao.buscaSala1(Integer.parseInt(idSala));
+		Sala objSala = dao.buscaSala(Integer.parseInt(idSala));
 		int estadoNuevo = objSala.getEstado() == 0 ? 1 : 0;
 		objSala.setEstado(estadoNuevo);
 		
-		dao.actualizaSala1(objSala);
-		List<Sala> lista = dao.listaSala11("%");
+		dao.actualizaSala(objSala);
+		List<Sala> lista = dao.listaSala("%");
 		
 		Respuesta objRespuesta = new Respuesta();
 		objRespuesta.setDatos(lista);
@@ -198,8 +193,8 @@ public class CrudSalaServlet extends HttpServlet {
 	
 		String idSala = req.getParameter("idSala");
 		
-		int eliminados = dao.eliminaSala1(Integer.parseInt(idSala));
-		List<Sala> lista = dao.listaSala11("%");
+		int eliminados = dao.eliminaSala(Integer.parseInt(idSala));
+		List<Sala> lista = dao.listaSala("%");
 		
 		Respuesta objRespuesta = new Respuesta();
 		if (eliminados > 0) {

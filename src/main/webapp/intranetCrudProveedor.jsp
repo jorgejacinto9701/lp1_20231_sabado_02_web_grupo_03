@@ -22,7 +22,7 @@
 
 <jsp:include page="intranetCabecera.jsp" />
 
-	<div class="container">
+	<div class="container" style="margin-top: 4%">
 		<h1>CRUD Proveedor</h1>
 
 		<div class="row" style="margin-top: 5%">
@@ -156,7 +156,7 @@
 			                   		<div id="stepOne" class="panel-collapse collapse in">
 			                   			<form id="id_form_actualiza">
 			                   			<input type="hidden" name="metodo" value="actualiza">
-			                   			<input type="hidden" name="idProveedor" value="idProveedor">
+			                   			<input type="hidden" name="idProveedor" id="idProveedor">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
 		                                        <label class="col-lg-3 control-label" for="id_act_razons">RAZON SOCIAL</label>
@@ -262,7 +262,7 @@
 						},className:'text-center'},
 						{data: "pais.nombre",className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idProveedor + '\',\'' +  row.razonsocial   + '\',\'' +  row.ruc + '\',\'' +  row.direccion + '\',\'' + row.celular + '\',\'' + row.contacto  +  '\',\'' + row.estado + '\',\'' + '\',\'' + row.pais.idPais +'\');">Editar</button>';  
+							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idProveedor + '\',\'' +  row.razonsocial   + '\',\'' +  row.ruc + '\',\'' +  row.direccion + '\',\'' + row.celular + '\',\'' + row.contacto  +  '\',\'' + row.estado + '\',\'' + row.pais.idPais +'\');">Editar</button>';  
 						},className:'text-center'},
 						{data: function(row, type, val, meta){
 							return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idProveedor +'\');" >E.Lógica</button>';

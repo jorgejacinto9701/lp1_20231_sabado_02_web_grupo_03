@@ -7,19 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import dao.RevistaDAO;
 import dao.SalaDAO;
-import entity.Modalidad;
-import entity.Revista;
 import entity.Sala;
 import entity.Sede;
-import util.FechaUtil;
 import util.MySqlDBConexion;
 
 public class MySqlSalaDAO implements SalaDAO {
 private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 	
-	public int insertaSala1(Sala  obj) {
+	public int insertaSala(Sala  obj) {
 		int salida = -1;
 		
 		Connection conn = null;
@@ -33,7 +29,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 			pstm.setInt(2, obj.getPiso());
 			pstm.setInt(3, obj.getNumAlumnos());
 			pstm.setString(3, obj.getRecursos());
-			pstm.setDate(4, obj.getFechaRegistro());
+			pstm.setTimestamp(4, obj.getFechaRegistro());
 			pstm.setInt(5, obj.getEstado());
 			pstm.setInt(6, obj.getSede().getIdSede());
 			
@@ -53,7 +49,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 	}
 
 	@Override
-	public List<Sala> listaSala11(String filtro) {
+	public List<Sala> listaSala(String filtro) {
 		List<Sala> lista = new ArrayList<Sala>();
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -101,7 +97,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 	}
   
 	@Override
-	public int actualizaSala1(Sala obj) {
+	public int actualizaSala(Sala obj) {
 		int salida = -1;
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -132,7 +128,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 	}
 
 	@Override
-	public int eliminaSala1(int idSala) {
+	public int eliminaSala(int idSala) {
 		int salida = -1;
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -157,7 +153,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 	}
 
 	@Override
-	public Sala buscaSala1(int idSala) {
+	public Sala buscaSala(int idSala) {
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -201,5 +197,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 		}
 		return objSala;
 	}
+
+
 
 }

@@ -33,7 +33,7 @@ public class CrudAutorServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		log.info(">> CrudAutorServlet >> service");
-		String vmetodo = req.getParameter("Metodo");
+		String vmetodo = req.getParameter("metodo");
 		switch (vmetodo) {
 		case "lista":
 			lista(req, resp);

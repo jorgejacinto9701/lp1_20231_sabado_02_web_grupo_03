@@ -19,8 +19,9 @@
 <title>Sistemas - Jorge Jacinto Gutarra</title>
 </head>
 <body>
+<jsp:include page="intranetCabecera.jsp" />
+<div class="container" style="margin-top: 4%">
 
-	<div class="container">
 		<h1>CRUD Autor Renato Rodriguez g3</h1>
 
 		<div class="row" style="margin-top: 5%">
@@ -297,7 +298,7 @@
 											className : 'text-center'
 										},
 										{
-											data : "Grado.nombre",
+											data : "grado.descripcion",
 											className : 'text-center'
 										},
 										{

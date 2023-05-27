@@ -20,8 +20,8 @@
 </head>
 <body>
 
-
- <div class="container">
+<jsp:include page="intranetCabecera.jsp" />
+ <div class="container" style="margin-top: 4%">
 		<h1>CRUD Revista</h1>
 
 		<div class="row" style="margin-top: 5%">
