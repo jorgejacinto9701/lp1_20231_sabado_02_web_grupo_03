@@ -10,9 +10,9 @@ import lombok.Setter;
 public class Sala {
 
 	private int idSala;
-	private String piso;
+	private int piso;
 	private String numero;
-	private String numAlumnos;
+	private int numAlumnos;
 	private String recursos;
 	private Timestamp fechaRegistro;
 	private int estado;

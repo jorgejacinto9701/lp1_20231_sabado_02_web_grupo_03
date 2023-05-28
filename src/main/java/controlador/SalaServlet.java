@@ -40,8 +40,8 @@ public class SalaServlet extends HttpServlet {
 			
 			Sala objSala = new Sala();
 			objSala.setNumero(vnumero);
-			objSala.setPiso(vpiso);
-			objSala.setNumAlumnos(vpiso);
+			//objSala.setPiso(vpiso);
+			//objSala.setNumAlumnos(vpiso);
 			objSala.setRecursos(vpiso);
 			objSala.setEstado(1);
 			

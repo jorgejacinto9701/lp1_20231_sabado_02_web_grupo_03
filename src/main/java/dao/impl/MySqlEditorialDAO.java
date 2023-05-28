@@ -170,9 +170,9 @@ public int insertaEditorial(Editorial obj) {
 		try {
 			conn = MySqlDBConexion.getConexion();
 			
-			String sql = "select e.*, p.nombre from editorial einner join Pais p on "
-					+"p.idPais= e.idPais"
-					+"where e.razonSocial=?";
+			String sql = "select e.*, p.nombre from editorial e inner join Pais p on "
+					+" p.idPais= e.idPais "
+					+" where e.idEditorial=?";
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, idEditorial);
 			

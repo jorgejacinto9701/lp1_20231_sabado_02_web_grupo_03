@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Editorial {
-  
+
 	private int idEditorial;
 	private String razonSocial;
 	private String direccion;
@@ -17,6 +17,6 @@ public class Editorial {
 	private Timestamp fechaRegistro;
 	private int estado;
 	private Pais pais;
-	 private String formatoCreacion ;
-   
+	private String formatoCreacion;
+
 }

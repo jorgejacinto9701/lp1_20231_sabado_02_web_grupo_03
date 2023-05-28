@@ -210,7 +210,7 @@
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
 			var vfiltro = $("#id_filtro").val();
-			$.getJSON("crudRevista", {"metodo": "lista","filtro":vfiltro}, function(data) {
+			$.getJSON("crudEditorial", {"metodo": "lista","filtro":vfiltro}, function(data) {
 				agregarGrilla(data);
 			});
 		});

@@ -57,9 +57,9 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 		try {
 			conn = MySqlDBConexion.getConexion();
 			
-			String sql = "select r.*, m.numero from sala r inner join sede m on "
+			String sql = "select r.*, m.nombre from sala r inner join sede m on "
 					+ " m.idSede= r.idSede "
-					+ " where r.nombre like ? ";
+					+ " where m.nombre like ? ";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, filtro);
 			
@@ -75,11 +75,11 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 				objSala.setPiso(rs.getInt(3));
 				objSala.setNumAlumnos(rs.getInt(4));
 				objSala.setRecursos(rs.getString(5));
-				objSala.setEstado(rs.getInt(6));
+				objSala.setEstado(rs.getInt(7));
 				
 				objSede = new Sede();
-				objSede.setIdSede(rs.getInt(7));
-				objSede.setNombre(rs.getString(8));
+				objSede.setIdSede(rs.getInt(8));
+				objSede.setNombre(rs.getString(9));
 				objSala.setSede(objSede);
 				
 				lista.add(objSala);
