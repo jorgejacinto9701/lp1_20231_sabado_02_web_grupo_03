@@ -9,6 +9,7 @@
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
 <script type="text/javascript" src="js/bootstrapValidator.js"></script>
 
 <link rel="stylesheet" href="css/bootstrap.css"/>
@@ -31,7 +32,7 @@
 				<label class="control-label" for="id_filtro">Numeros</label> 
 			</div>	
 			<div class="col-md-6">
-				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese el nombre">
+				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese el numero">
 			</div>	
 			<div class="col-md-1">
 				<button type="button" class="btn btn-primary" id="id_btn_filtro">Filtro</button>
@@ -44,7 +45,7 @@
 
 		<div class="row" style="margin-top: 4%">
 			<table id="id_table" class="table table-bordered table-hover table-condensed" >
-				<thead style='background-color:#337ab7; color:white'>
+				<thead style='background-color:#FFD700; color:red'>
 					<tr>
 						<th>ID</th>
 						<th>Numero</th>
@@ -74,7 +75,7 @@
 					</div>
 					<div class="modal-body" >
 						 <div class="panel-group" id="steps">
-			                   <div class="panel panel-default">
+			                   <div class="panel panel-danger">
 			                   		<div id="stepOne" class="panel-collapse collapse in">
 			                   			<form id="id_form_registra">
 			                   			<input type="hidden" name="metodo" value="inserta">
@@ -98,6 +99,18 @@
 													<input class="form-control" id="id_reg_numAlumnos" name="numAlumnos" placeholder="Ingrese alumnos" type="text" maxlength="10" />
 		                                        </div>
 		                                    </div> 
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_recursos">recursos</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_recursoso" name="recursos" placeholder="Ingrese recursos" type="text" maxlength="10" />
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_estado">estado</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_estado" name="estado" placeholder="Ingrese estado" type="text" maxlength="10" />
+		                                        </div>
+		                                    </div>
 			                                <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_sede">Sede</label>
 		                                        <div class="col-lg-8">
@@ -139,19 +152,33 @@
 			                   		<div id="stepOne" class="panel-collapse collapse in">
 			                   			<form id="id_form_actualiza">
 			                   			<input type="hidden" name="metodo" value="actualiza">
-			                   			<input type="hidden" name="idRevista" id="idRevista">
+			                   			<input type="hidden" name="idSala" id="idSala">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_nombre">Numero</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_numero">Numero</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="200"/>
+													<input class="form-control" id="id_act_numero" name="numero" placeholder="Ingrese el Numero" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_frecuencia">Piso</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_piso">Piso</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_frecuencia" name="frecuencia" placeholder="Ingrese la frecuencia" type="text" maxlength="200"/>
+													<input class="form-control" id="id_act_piso" name="piso" placeholder="Ingrese la piso" type="text" maxlength="200"/>
 		                                        </div>
+		                                    </div> 
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_act_numAlumnos">numAlumnos</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_act_numAlumnos" name="numAlumnos" placeholder="Ingrese la alumnos" type="text" maxlength="200"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_act_recursos">Recursos</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_act_recursos" name="recursos" placeholder="Ingrese recursos" type="text" maxlength="200"/>
+		                                        </div>
+		                                    </div>
+		                                    
 		                                    </div> 	
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_estado">Estado</label>
@@ -185,11 +212,14 @@
 					</div>
 				</div>
 			</div>
-		
+		</div>	
+		<!-- FIN MODAL DE ACTUALIZA -->		
+	</div>
+	
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
 			var vfiltro = $("#id_filtro").val();
-			$.getJSON("crudSede", {"metodo": "lista","filtro":vfiltro}, function(data) {
+			$.getJSON("crudSala", {"metodo": "lista","filtro":vfiltro}, function(data) {
 				agregarGrilla(data);
 			});
 		});
@@ -213,22 +243,23 @@
 			        
 			        
 					columns:[  
-						{data: "idRevista",className:'text-center'},
-						{data: "nombre",className:'text-center'},
-						{data: "frecuencia",className:'text-center'},
-						{data: "formatoCreacion",className:'text-center'},
+						{data: "idSala",className:'text-center'},
+						{data: "numero",className:'text-center'},
+						{data: "piso",className:'text-center'},
+						{data: "numAlumnos",className:'text-center'},
 						{data: function(row, type, val, meta){
-							return row.estado == 1 ? "Activo" : "Inactivo";  
+							return row.estado == 1 ? "Activo" : "Inactivo";
 						},className:'text-center'},
-						{data: "modalidad.descripcion",className:'text-center'},
+						{data: "sede.nombre",className:'text-center'},
 						{data: function(row, type, val, meta){
-						return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idSala + '\',\'' +  row.numero   + '\',\'' +  row.piso + '\',\'' + '\',\'' +  row.piso + '\',\''+  row.numAlumnos + '\',\'' + '\',\'' +  row.recursos + '\',\''  row.estado + '\',\'' +  row.sede.idSede +'\');">Editar</button>';  
-						},className:'text-center'},
-						{data: function(row, type, val, meta){
-						return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idSde +'\');" >E.Lógica</button>';
+						return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idSala + '\',\'' +  row.numero   + '\',\'' +  row.piso + '\',\''  +  row.numAlumnos + '\',\'' +  row.recursos + '\',\'' +  row.estado + '\',\'' +  row.sede.idSede +'\');">Editar</button>';
+						
 						},className:'text-center'},
 						{data: function(row, type, val, meta){
-						return '<button type="button" class="btn btn-danger btn-sm"  onClick="eliminacionFisica(\'' + row.idSede +'\');" >E.Física</button>';
+						return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idSala +'\');" >E.Lógica</button>';
+						},className:'text-center'},
+						{data: function(row, type, val, meta){
+						return '<button type="button" class="btn btn-danger btn-sm"  onClick="eliminacionFisica(\'' + row.idSala +'\');" >E.Física</button>';
 						},className:'text-center'},
 					]       
 			        
@@ -286,8 +317,8 @@
 		
 		$.getJSON("cargaSede", {}, function (data){
 			$.each(data, function(index, item){
-				$("#id_reg_sede").append("<option value=" +  item.idSede +" >" +  item.descripcion+ "</option>");
-				$("#id_act_sede").append("<option value=" +  item.idSede +" >" +  item.descripcion+ "</option>");
+				$("#id_reg_sede").append("<option value=" +  item.idSede +" >" +  item.nombre+ "</option>");
+				$("#id_act_sede").append("<option value=" +  item.idSede +" >" +  item.nombre+ "</option>");
 			});	
 		});	
 		
@@ -342,8 +373,8 @@
 		        		}
 		        	},
 		        	
-		        	alaumnos : {
-		        		selector: "#id_reg_numaAlumnos",
+		        	numAlumnos : {
+		        		selector: "#id_reg_numAlumnos",
 		        		validators : {
 		        			notEmpty: {
 		                        message: 'debe ingresar alumno'
@@ -352,6 +383,7 @@
 		                        min: 1,
 		                        max: 20,
 		                        message: 'minimo 1 a  20 caracteres'
+		                    }
 		        		}
 		        	},
 		        	
@@ -361,14 +393,14 @@
 		        			notEmpty: {
 		                        message: 'La recursos es requerida'
 		                    },
-		                    
 		        		}
-		        	},
-		        	
-		        	
+		        	},        	
 		        }
-		    });
+		        	
+		        });
+		    
 		});
+		
 		
 		$(document).ready(function() {
 		    $('#id_form_actualiza').bootstrapValidator({
@@ -380,11 +412,11 @@
 		        },
 		        
 		        fields:{
-		        	nombre : {  
-		        		selector: "#id_act_nombre",
+		        	numero : {  
+		        		selector: "#id_act_numero",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El nombre es requerido'
+		                        message: 'El numero es requerido'
 		                    },
 		                    stringLength: {
 		                        min: 3,
@@ -394,11 +426,11 @@
 		        		}
 		        	},
 		        	
-		        	frecuencia : {  
-		        		selector: "#id_act_frecuencia",
+		        	piso : {  
+		        		selector: "#id_act_piso",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'La frecuencia es requerida'
+		                        message: 'La piso es requerida'
 		                    },
 		                    stringLength: {
 		                        min: 3,
@@ -408,11 +440,11 @@
 		        		}
 		        	},
 		        	
-		        	fechaCreacion : {
-		        		selector: "#id_act_fechaCreacion",
+		        	numAlumnos : {
+		        		selector: "#id_act_numAlumnos",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'La fecha de creacion es requerida'
+		                        message: 'alumnos es requerida'
 		                    },
 		        		}
 		        	},
@@ -426,11 +458,11 @@
 		        		}
 		        	},  
 		        	
-		        	modalidad : {
-		        		selector: "#id_act_modalidad",
+		        	sede: {
+		        		selector: "#id_act_sede",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'La modalidad es requerida'
+		                        message: 'La esde es requerida'
 		                    },
 		        		}
 		        	},        	
@@ -486,10 +518,12 @@
 			    });
 			}
 		</script>
-	</div>
-</div>
+
 </body>
 </html>
+
+
+
 
 
 
