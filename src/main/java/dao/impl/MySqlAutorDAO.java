@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import dao.AutorDAO;
 import entity.Autor;
 import entity.Grado;
+import util.FechaUtil;
 import util.MySqlDBConexion;
 
 @WebServlet("/registraautor")
@@ -61,9 +62,9 @@ public class MySqlAutorDAO implements AutorDAO{
 		ResultSet rs = null;
 		try {
 				conn = MySqlDBConexion.getConexion();
-				String sql = "select cl.*, ca.nombre from cliente cl inner join grado ca on"
-						+ "cl.idGrado = ca.idGrado"
-						+ "where cl.nombre like ?";
+				String sql = "select cl.*, ca.descripcion from autor cl inner join grado_autor ca on "
+						+ "cl.idGrado = ca.idGrado "
+						+ "where cl.nombres like ? ";
 				pstm = conn.prepareStatement(sql);
 				pstm.setString(1, filtro);
 				
@@ -79,11 +80,12 @@ public class MySqlAutorDAO implements AutorDAO{
 					objAutor.setApellidos(rs.getString(3));
 					objAutor.setFechaNacimiento(rs.getDate(4));
 					objAutor.setTelefono(rs.getString(5));
-					objAutor.setEstado(rs.getInt(6));
+					objAutor.setEstado(rs.getInt(7));
+					objAutor.setFormateadoFecNac(FechaUtil.getFechaFormateadaYYYYMMdd(rs.getDate(4)));
 					
 					objGrado = new Grado();	
-					objGrado.setIdGrado(rs.getInt(7));
-					objGrado.setNombre(rs.getString(8));
+					objGrado.setIdGrado(rs.getInt(8));
+					objGrado.setDescripcion(rs.getString(9));
 					objAutor.setGrado(objGrado);
 					
 					lista.add(objAutor);
@@ -171,9 +173,9 @@ int salida = -1;
 		Autor objAutor = null;
 		try {
 				conn = MySqlDBConexion.getConexion();
-				String sql = "select cl.*, ca.nombre from cliente cl inner join grado ca on"
-						+ "cl.idGrado = ca.idGrado"
-						+ "where cl.idAutor like ?";
+				String sql = "select cl.*, ca.nombre from cliente cl inner join grado ca on "
+						+ "cl.idGrado = ca.idGrado "
+						+ "where cl.idAutor like ? ";
 				pstm = conn.prepareStatement(sql);
 				pstm.setInt(1, idAutor);
 				
@@ -193,7 +195,7 @@ int salida = -1;
 					
 					objGrado = new Grado();	
 					objGrado.setIdGrado(rs.getInt(7));
-					objGrado.setNombre(rs.getString(8));
+					objGrado.setDescripcion(rs.getString(8));
 					objAutor.setGrado(objGrado);
 				
 		}

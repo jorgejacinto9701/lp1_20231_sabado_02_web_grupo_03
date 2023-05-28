@@ -11,9 +11,9 @@ import dao.PaisDAO;
 import entity.Pais;
 import util.MySqlDBConexion;
 
-public class MysqlPais implements PaisDAO{
+public class MySqlPaisDAO implements PaisDAO{
 
-	private static Logger log = Logger.getLogger(MysqlPais.class.getName());
+	private static Logger log = Logger.getLogger(MySqlPaisDAO.class.getName());
 	
 	public List<Pais> listaPais() {
 		List<Pais> lista = new ArrayList<Pais>();
@@ -23,7 +23,7 @@ public class MysqlPais implements PaisDAO{
 		try {
 			conn = MySqlDBConexion.getConexion();
 			
-			String sql = "select * from Pais";
+			String sql = "select * from pais";
 			pstm = conn.prepareStatement(sql);
 			log.info(">>>> " + pstm);
 
@@ -48,5 +48,3 @@ public class MysqlPais implements PaisDAO{
 		return lista;
 	}
 }
-
-
