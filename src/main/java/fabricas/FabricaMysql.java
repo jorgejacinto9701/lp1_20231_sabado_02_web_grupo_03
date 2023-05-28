@@ -1,6 +1,7 @@
 package fabricas;
 
 import dao.AlumnoDAO;
+
 import dao.AutorDAO;
 import dao.DevolucionDAO;
 import dao.EditorialDAO;
@@ -22,6 +23,7 @@ import dao.impl.MySqlEditorialDAO;
 import dao.impl.MySqlGradoDAO;
 import dao.impl.MySqlLibroDAO;
 import dao.impl.MySqlModalidadDAO;
+import dao.impl.MySqlPaisDAO;
 import dao.impl.MySqlPrestamoDAO;
 import dao.impl.MySqlProveedorDAO;
 import dao.impl.MySqlRevistaDAO;
@@ -29,7 +31,6 @@ import dao.impl.MySqlSalaDAO;
 import dao.impl.MySqlSeparacionDAO;
 import dao.impl.MySqlTesisDAO;
 import dao.impl.MySqlUsuarioDAO;
-import dao.impl.MysqlPais;
 import dao.impl.MysqlSede;
 
 public class FabricaMysql extends Fabrica {
@@ -87,7 +88,7 @@ public class FabricaMysql extends Fabrica {
 	}
 
 	public PaisDAO getPais() {
-		return new MysqlPais();
+		return new MySqlPaisDAO();
 	}
 
 	@Override
