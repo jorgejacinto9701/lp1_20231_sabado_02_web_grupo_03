@@ -29,7 +29,7 @@ public class ConsultaProveedorServlet extends HttpServlet  {
 		String vfechaInicio = req.getParameter("fechaInicio");
 		String vfechaFin = req.getParameter("fechaFin");
 
-		if (vfechaInicio.equals("")) 	vfechaInicio = "1800-01-01"; 
+		if (vfechaInicio.equals("")) 	vfechaInicio = "1801-01-01"; 
 		if (vfechaFin.equals("")) 		vfechaFin = "2500-12-31";
 
 List<Proveedor> lista = dao.consultaProveedor(RazonSocial + "%", Integer.valueOf(pais), Integer.valueOf(estado),Date.valueOf(vfechaInicio), Date.valueOf(vfechaFin));

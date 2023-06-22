@@ -13,7 +13,7 @@ public interface ProveedorDAO {
 	public abstract int eliminaProveedor(int idProveedor);
 	public abstract Proveedor buscaProveedor(int idProveedor);
 	
-	// consulta //
+	// consultas //
 	public abstract List<Proveedor> consultaProveedor(String RazonSocial, int idPais, int idEstado, Date fecInicio, Date fecFin);
 }
 

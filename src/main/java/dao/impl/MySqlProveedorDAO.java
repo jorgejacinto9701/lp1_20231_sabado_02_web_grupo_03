@@ -204,6 +204,7 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 		return objProveedor;
 	}
 	@Override
+	// Cosulta Proveedor //
 	public List<Proveedor> consultaProveedor(String RazonSocial, int idPais, int idEstado, Date fecInicio,
 			Date fecFin) {
 		List<Proveedor> lista = new ArrayList<Proveedor>();

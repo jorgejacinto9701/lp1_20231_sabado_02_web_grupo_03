@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/dataTables.bootstrap.min.css"/>
 <link rel="stylesheet" href="css/bootstrapValidator.css"/>
 
-<title>Consulta Proveedor</title>
+<title>Consulta Proveedor - Davila Diaz Diego G3</title>
 </head>
 <body>
 
