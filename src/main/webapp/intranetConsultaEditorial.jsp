@@ -78,7 +78,7 @@
 					<tr>
 						<th>Código</th>
 						<th>Razon Social</th>
-						<th>Direccion</th>
+						<th>Dirección</th>
 						<th>Ruc</th>
 						<th>Fecha De Creación</th>
 						<th>Fecha Registro</th>
