@@ -7,10 +7,10 @@ import java.util.ResourceBundle;
 
 public class MySqlDBConexion {
 
-	// permite el acceso los parametros del archivo properties
+
 	private static ResourceBundle rb = ResourceBundle.getBundle("database");
 
-	// Accede a las clases del mysqlconnectorXXXX.jar
+
 	static {
 		try {
 			Class.forName(rb.getString("driver"));
@@ -19,7 +19,7 @@ public class MySqlDBConexion {
 		}
 	}
 
-	// Metodo para crear conexiones
+	
 	public static Connection getConexion() {
 		Connection salida = null;
 		try {

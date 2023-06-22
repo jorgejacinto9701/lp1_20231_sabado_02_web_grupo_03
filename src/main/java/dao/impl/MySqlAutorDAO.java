@@ -1,13 +1,12 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
-import javax.servlet.annotation.WebServlet;
 
 import dao.AutorDAO;
 import entity.Autor;
@@ -15,10 +14,7 @@ import entity.Grado;
 import util.FechaUtil;
 import util.MySqlDBConexion;
 
-@WebServlet("/registraautor")
 public class MySqlAutorDAO implements AutorDAO{
-
-
 	private static Logger log = Logger.getLogger(MySqlAutorDAO.class.getName());
 	
 	public int insertaAutor(Autor  obj) {
@@ -38,9 +34,7 @@ public class MySqlAutorDAO implements AutorDAO{
 			pstm.setTimestamp(5, obj.getFechaRegistro());
 			pstm.setInt(6, obj.getEstado());
 			pstm.setInt(7, obj.getGrado().getIdGrado());
-			
 			log.info(">>>> " + pstm);
-
 			salida = pstm.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -62,15 +56,15 @@ public class MySqlAutorDAO implements AutorDAO{
 		ResultSet rs = null;
 		try {
 				conn = MySqlDBConexion.getConexion();
-				String sql = "select cl.*, ca.descripcion from autor cl inner join grado_autor ca on "
-						+ "cl.idGrado = ca.idGrado "
-						+ "where cl.nombres like ? ";
+				String sql = "select cl.*, ca.descripcion FROM autor cl "
+						+ "inner join grado_autor ca on cl.idGrado = ca.idGrado "
+						+ "where cl.nombres like = ? ";
 				pstm = conn.prepareStatement(sql);
 				pstm.setString(1, filtro);
 				
 				log.info(">>>>" + pstm);
 				
-				rs =pstm.executeQuery();
+				rs = pstm.executeQuery();
 				Autor objAutor = null;
 				Grado objGrado = null;
 				while(rs.next()) {
@@ -80,10 +74,10 @@ public class MySqlAutorDAO implements AutorDAO{
 					objAutor.setApellidos(rs.getString(3));
 					objAutor.setFechaNacimiento(rs.getDate(4));
 					objAutor.setTelefono(rs.getString(5));
+					objAutor.setFechaRegistro(rs.getTimestamp(6));
 					objAutor.setEstado(rs.getInt(7));
 					objAutor.setFormateadoFecNac(FechaUtil.getFechaFormateadaYYYYMMdd(rs.getDate(4)));
-					
-					objGrado = new Grado();	
+					objGrado = new Grado();
 					objGrado.setIdGrado(rs.getInt(8));
 					objGrado.setDescripcion(rs.getString(9));
 					objAutor.setGrado(objGrado);
@@ -173,16 +167,14 @@ int salida = -1;
 		Autor objAutor = null;
 		try {
 				conn = MySqlDBConexion.getConexion();
-				String sql = "select cl.*, ca.nombre from cliente cl inner join grado ca on "
-						+ "cl.idGrado = ca.idGrado "
-						+ "where cl.idAutor like ? ";
+				String sql = "select cl.*, ca.descripcion FROM autor cl "
+						+ "inner join grado_autor ca on cl.idGrado = ca.idGrado "
+						+ "where cl.nombres like = ? ";
 				pstm = conn.prepareStatement(sql);
 				pstm.setInt(1, idAutor);
-				
 				log.info(">>>>" + pstm);
-				
 				rs =pstm.executeQuery();
-				;
+				
 				Grado objGrado = null;
 				while(rs.next()) {
 					objAutor = new Autor();
@@ -191,11 +183,11 @@ int salida = -1;
 					objAutor.setApellidos(rs.getString(3));
 					objAutor.setFechaNacimiento(rs.getDate(4));
 					objAutor.setTelefono(rs.getString(5));
-					objAutor.setEstado(rs.getInt(6));
-					
-					objGrado = new Grado();	
-					objGrado.setIdGrado(rs.getInt(7));
-					objGrado.setDescripcion(rs.getString(8));
+					objAutor.setFechaRegistro(rs.getTimestamp(6));
+					objAutor.setEstado(rs.getInt(7));
+					objGrado = new Grado();
+					objGrado.setIdGrado(rs.getInt(8));
+					objGrado.setDescripcion(rs.getString(9));
 					objAutor.setGrado(objGrado);
 				
 		}
@@ -210,6 +202,61 @@ int salida = -1;
 				
 		}
 		return objAutor;
+	}
+
+	@Override
+	public List<Autor> consultaAutor(String nombre, int idGrado, int idEstado, Date fecInicio, Date fecFin) {
+		List<Autor> lista = new ArrayList<Autor>();
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		try {
+			conn = MySqlDBConexion.getConexion();
+			String sql = "SELECT cl.*, ca.descripcion FROM autor cl inner join grado_autor ca "
+					+ "on cl.idGrado = ca.idGrado "
+					+ "where 1=1 "
+					+ "and cl.nombres like ? "
+					+ "and ( ? = -1 or cl.idGrado = ? ) "
+					+ "and cl.estado = ? "
+					+ "and cl.fechaNacimiento >= ? "
+					+ "and cl.fechaNacimiento <= ? ";
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, nombre);
+			pstm.setInt(2, idGrado);
+			pstm.setInt(3, idGrado);
+			pstm.setInt(4, idEstado);
+			pstm.setDate(5, fecInicio);
+			pstm.setDate(6, fecFin);
+			log.info(">>>> " + pstm);
+			rs = pstm.executeQuery();
+			Autor objAutor = null;
+			Grado objGrado = null;
+			while(rs.next()) {
+				objAutor = new Autor();
+				objAutor.setIdAutor(rs.getInt(1));
+				objAutor.setNombres(rs.getString(2));
+				objAutor.setApellidos(rs.getString(3));
+				objAutor.setFechaNacimiento(rs.getDate(4));
+				objAutor.setTelefono(rs.getString(5));
+				objAutor.setFechaRegistro(rs.getTimestamp(6));
+				objAutor.setEstado(rs.getInt(7));
+				objAutor.setFormateadoFecNac(FechaUtil.getFechaFormateadaYYYYMMdd(rs.getDate(4)));
+				objGrado = new Grado();
+				objGrado.setIdGrado(rs.getInt(8));
+				objGrado.setDescripcion(rs.getString(9));
+				objAutor.setGrado(objGrado);
+				lista.add(objAutor);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null) pstm.close();
+				if (conn != null) conn.close();
+			} catch (Exception e2) {}
+		}
+		
+		return lista;
 	}
 	
 }
