@@ -11,10 +11,8 @@ import dao.GradoDAO;
 import entity.Grado;
 import util.MySqlDBConexion;
 
-public class MySqlGradoDAO implements GradoDAO{
-	
-private static Logger log = Logger.getLogger(MySqlGradoDAO.class.getName());
-	
+public class MySqlGradoDAO implements GradoDAO {
+	private static Logger log = Logger.getLogger(MySqlGradoDAO.class.getName());
 	public List<Grado> listaGrado() {
 		List<Grado> lista = new ArrayList<Grado>();
 		Connection conn = null;
@@ -46,5 +44,4 @@ private static Logger log = Logger.getLogger(MySqlGradoDAO.class.getName());
 		
 		return lista;
 	}
-
 }

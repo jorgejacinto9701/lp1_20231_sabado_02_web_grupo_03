@@ -20,7 +20,7 @@ public class Autor {
 	private int estado;
 	private Grado grado;
 	
-	//Declaracion de atributo para formato de fechaNacimiento
+
 	private String formateadoFecNac;
    
 }
