@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -202,7 +203,57 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 		}
 		return objProveedor;
 	}
-
-
+	@Override
+	public List<Proveedor> consultaProveedor(String RazonSocial, int idPais, int idEstado, Date fecInicio,
+			Date fecFin) {
+		List<Proveedor> lista = new ArrayList<Proveedor>();
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		try {
+			conn = MySqlDBConexion.getConexion();
+			String sql = "select pr.*, pa.nombre from proveedor pr inner join pais pa "
+					+ "on pr.idPais = pa.idPais "
+					+ "where 1=1 "
+					+ "and cl.razonsocial like ? "
+					+ "and ( ? = -1 or pr.idPais = ? ) "
+					+ "and cl.estado = ? ";
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, RazonSocial);
+			pstm.setInt(2, idPais);
+			pstm.setInt(3, idPais);
+			pstm.setInt(4, idEstado);
+			pstm.setDate(5, fecInicio);
+			pstm.setDate(6, fecFin);
+			log.info(">>>> " + pstm);
+			rs = pstm.executeQuery();
+			Proveedor objProveedor = null;
+			Pais objPais = null;
+			while(rs.next()) {
+				objProveedor = new Proveedor();
+			    objProveedor.setIdProveedor(rs.getInt(1));
+			    objProveedor.setRazonsocial(rs.getString(2));
+			    objProveedor.setRuc(rs.getString(3));
+			    objProveedor.setDireccion(rs.getString(4));
+			    objProveedor.setCelular(rs.getString(5));
+			    objProveedor.setContacto(rs.getString(6));
+			    objProveedor.setEstado(rs.getInt(7));
+			    objProveedor.setFechaRegistro(rs.getTimestamp(8));
+			    objPais = new Pais();
+			    objPais.setIdPais(rs.getInt(9));
+			    objPais.setNombre(rs.getString(10));
+			    objProveedor.setPais(objPais);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null) pstm.close();
+				if (conn != null) conn.close();
+			} catch (Exception e2) {}
+		}
+		
+		return lista;
+	}
 	
 }
