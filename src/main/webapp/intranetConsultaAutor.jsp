@@ -20,7 +20,7 @@
 
 <jsp:include page="intranetCabecera.jsp" />
 <div class="container" style="margin-top: 4%">
-<h1>Consulta Autor - Renato Rodriguez g3</h1>
+<h1>Consulta Autor - Renato Rodriguez G3</h1>
 <div class="row" style="margin-top: 5%">
 				<div class="col-md-4">
 				 	<label class="col-lg-3 control-label" for="id_nombre">Nombre</label>
