@@ -25,7 +25,7 @@
 <jsp:include page="intranetCabecera.jsp" />
 <div class="container" style="margin-top: 4%">
 
-		<h5>AUTOR:  </h5>
+		<h5>AUTOR:  RIVERS ONCOY  </h5>
 		<div class="row" style="margin-top: 5%">
 				<div class="col-md-4">
 					<label class="control-label" for="id_numero">Numero</label>
