@@ -35,7 +35,17 @@ public class ConsultaProveedorServlet extends HttpServlet  {
 	        vfechaFin = "2500-12-31";
 	    }
 
-	    List<Proveedor> lista = dao.consultaProveedor(razonsocial + "%", Integer.valueOf(pais), Integer.valueOf(estado), Date.valueOf(vfechaInicio), Date.valueOf(vfechaFin));
+	    int parsedPais = 0;
+	    if (pais != null && !pais.equals("")) {
+	        parsedPais = Integer.parseInt(pais);
+	    }
+
+	    int parsedEstado = 0;
+	    if (estado != null && !estado.equals("")) {
+	        parsedEstado = Integer.parseInt(estado);
+	    }
+
+	    List<Proveedor> lista = dao.consultaProveedor(razonsocial + "%", parsedPais, parsedEstado, Date.valueOf(vfechaInicio), Date.valueOf(vfechaFin));
 
 	    Gson gson = new Gson();
 	    String json = gson.toJson(lista);
@@ -43,6 +53,7 @@ public class ConsultaProveedorServlet extends HttpServlet  {
 	    PrintWriter out = resp.getWriter();
 	    out.println(json);
 	}
+
 
 
 }
