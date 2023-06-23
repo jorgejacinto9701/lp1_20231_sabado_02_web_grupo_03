@@ -29,10 +29,10 @@
 		
 		<div class="row" style="margin-top: 5%">
 		     <div class="col-md-4">
-		          <label class="control-label" for="id_RazonSocial">Razon Social</label>
+		          <label class="control-label" for="id_razonsocial">Razon Social</label>
 		     </div>
 		     <div class="col-md-5">
-		          <input class="control-label" type="text" id="id_RazonSocial">
+		          <input class="control-label" type="text" id="id_razonsocial">
 		     </div>
 		</div>
 		
@@ -81,7 +81,7 @@
 						<tr>
 							<th>idProveedor</th>
 							<th>Razon Social</th>
-							<th>RUC</th>
+							<th>ruc</th>
 							<th>Direccion</th>
 							<th>Celular</th>
 							<th>Contacto</th>
@@ -116,15 +116,15 @@
 			                   			<input type="hidden" name="idProveedor" id="idProveedor" >
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_RazonSocial">Razon Social</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_razonsocial">Razon Social</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_RazonSocial" type="text" readonly="readonly"/>
+													<input class="form-control" id="id_act_razonsocial" type="text" readonly="readonly"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_RUC">RUC</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_ruc">ruc</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_RUC" type="text" readonly="readonly"/>
+													<input class="form-control" id="id_act_ruc" type="text" readonly="readonly"/>
 		                                        </div>
 		                                    </div> 
 		                                    <div class="form-group" >
@@ -184,20 +184,20 @@
 
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
-			var vRazonSocial = $("#id_RazonSocial").val();
+			var vrazonsocial = $("#id_razonsocial").val();
 			var vpais = $("#id_pais").val();
 			var vestado = $("#id_estado").is(":checked") ? 1 : 0;
 			var vfecIni = $("#id_fecha_inicio").val();
 			var vfecFin = $("#id_fecha_fin").val();
 			
-			console.log(">> vRazonSocial >> " + vRazonSocial);
+			console.log(">> vrazonsocial >> " + vrazonsocial);
 			console.log(">> vpais >> " + vpais);
 			console.log(">> vestado >> " + vestado);
 			console.log(">> vfecIni >> " + vfecIni);
 			console.log(">> vfecFin >> " + vfecFin);
 			
 			
-			$.getJSON("consultaProveedor", {"RazonSocial":vRazonSocial,"pais":vpais, "estado":vestado, "fechaInicio":vfecIni, "fechaFin":vfecFin}, function(data) {
+			$.getJSON("consultaProveedor", {"razonsocial":vrazonsocial,"pais":vpais, "estado":vestado, "fechaInicio":vfecIni, "fechaFin":vfecFin}, function(data) {
 				agregarGrilla(data);
 			});
 		});
@@ -220,8 +220,8 @@
 			        },
 					columns:[
 						{data: "idProveedor",className:'text-center'},
-						{data: "RazonSocial",className:'text-center'},
-						{data: "RUC",className:'text-center'},
+						{data: "razonsocial",className:'text-center'},
+						{data: "ruc",className:'text-center'},
 						{data: "direccion",className:'text-center'},
 						{data: "celular",className:'text-center'},
 						{data: "contacto",className:'text-center'},
@@ -231,7 +231,7 @@
 						},className:'text-center'},
 						{data: "pais.nombre",className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormulario(\'' + row.RazonSocial + '\',\'' + row.RUC + '\',\'' + row.direccion + '\',\'' +  row.celular + '\',\'' +  row.contacto + '\',\'' + row.estado + '\',\'' +  row.pais.idPais +'\');">Ver</button>';  
+							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormulario(\'' + row.razonsocial + '\',\'' + row.ruc + '\',\'' + row.direccion + '\',\'' +  row.celular + '\',\'' +  row.contacto + '\',\'' + row.estado + '\',\'' +  row.pais.idPais +'\');">Ver</button>';  
 						},className:'text-center'},
 					]                                     
 			    });
@@ -244,11 +244,11 @@
 			});	
 		});
 		
-		function verFormulario( RazonSocial, RUC, direccion, celular, contacto, estado, pais){
+		function verFormulario( razonsocial, ruc, direccion, celular, contacto, estado, pais){
         	console.log(">> verFormulario ")
         	$("#id_div_modal_ver").modal("show");
-            $("#id_act_RazonSocial").val(RazonSocial);
-            $("#id_act_RUC").val(RUC);
+            $("#id_act_razonsocial").val(razonsocial);
+            $("#id_act_ruc").val(ruc);
             $("#id_act_direccion").val(direccion);
             $("#id_act_celular").val(celular);
             $("#id_act_contacto").val(contacto);

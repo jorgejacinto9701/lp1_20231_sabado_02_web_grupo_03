@@ -216,16 +216,14 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 			String sql = "select pr.*, pa.nombre from proveedor pr inner join pais pa "
 					+ "on pr.idPais = pa.idPais "
 					+ "where 1=1 "
-					+ "and cl.razonsocial like ? "
+					+ "and pr.razonsocial like ? "
 					+ "and ( ? = -1 or pr.idPais = ? ) "
-					+ "and cl.estado = ? ";
+					+ "and pr.estado =  ? ";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, RazonSocial);
 			pstm.setInt(2, idPais);
 			pstm.setInt(3, idPais);
 			pstm.setInt(4, idEstado);
-			pstm.setDate(5, fecInicio);
-			pstm.setDate(6, fecFin);
 			log.info(">>>> " + pstm);
 			rs = pstm.executeQuery();
 			Proveedor objProveedor = null;
@@ -244,7 +242,7 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 			    objPais.setIdPais(rs.getInt(9));
 			    objPais.setNombre(rs.getString(10));
 			    objProveedor.setPais(objPais);
-			}
+			    lista.add(objProveedor);			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

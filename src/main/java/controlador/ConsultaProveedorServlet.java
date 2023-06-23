@@ -18,28 +18,31 @@ import fabricas.Fabrica;
 @WebServlet("/consultaProveedor")
 public class ConsultaProveedorServlet extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
-
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
-		ProveedorDAO  dao = fabrica.getProveedor();
-		String RazonSocial = req.getParameter("RazonSocial");
-		String pais = req.getParameter("pais");
-		String estado = req.getParameter("estado");
-		String vfechaInicio = req.getParameter("fechaInicio");
-		String vfechaFin = req.getParameter("fechaFin");
+	    Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
+	    ProveedorDAO dao = fabrica.getProveedor();
+	    String razonsocial = req.getParameter("razonsocial");
+	    String pais = req.getParameter("pais");
+	    String estado = req.getParameter("estado");
+	    String vfechaInicio = req.getParameter("fechaInicio");
+	    String vfechaFin = req.getParameter("fechaFin");
 
-		if (vfechaInicio.equals("")) 	vfechaInicio = "1801-01-01"; 
-		if (vfechaFin.equals("")) 		vfechaFin = "2500-12-31";
+	    if (vfechaInicio == null || vfechaInicio.equals("")) {
+	        vfechaInicio = "1801-01-01";
+	    }
+	    if (vfechaFin == null || vfechaFin.equals("")) {
+	        vfechaFin = "2500-12-31";
+	    }
 
-List<Proveedor> lista = dao.consultaProveedor(RazonSocial + "%", Integer.valueOf(pais), Integer.valueOf(estado),Date.valueOf(vfechaInicio), Date.valueOf(vfechaFin));
-		
-		Gson gson = new Gson();
-		String json = gson.toJson(lista);
-		resp.setContentType("application/json;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println(json);
-		
+	    List<Proveedor> lista = dao.consultaProveedor(razonsocial + "%", Integer.valueOf(pais), Integer.valueOf(estado), Date.valueOf(vfechaInicio), Date.valueOf(vfechaFin));
+
+	    Gson gson = new Gson();
+	    String json = gson.toJson(lista);
+	    resp.setContentType("application/json;charset=UTF-8");
+	    PrintWriter out = resp.getWriter();
+	    out.println(json);
 	}
+
 
 }
