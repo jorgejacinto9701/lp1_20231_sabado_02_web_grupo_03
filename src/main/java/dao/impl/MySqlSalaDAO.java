@@ -103,7 +103,7 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 		PreparedStatement pstm = null;
 		try {
 			conn = MySqlDBConexion.getConexion();
-			String sql = "update revista set numero=?, piso=?, numAlumnos=?, recursos=?,estado=? idSede=? where idSalav=?";
+			String sql = "update sala set numero=?, piso=?, numAlumnos=?, recursos=?,estado=? idSede=? where idSala=?";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, obj.getNumero());
 			pstm.setInt(2, obj.getPiso());
@@ -199,5 +199,58 @@ private static Logger log = Logger.getLogger(MySqlSalaDAO.class.getName());
 	}
 
 
+@Override
+public List<Sala> listaComplejaSala(String numero, int idSede, int estado, String recursos,int piso, int numAlumnos) {
+	List<Sala> lista = new ArrayList<Sala>();
+	Connection conn = null;
+	PreparedStatement pstm = null;
+	ResultSet rs = null;
+	try {
+		conn = MySqlDBConexion.getConexion();
+		
+		String sql = "select r.*, m.nombre from sala r inner join sede m on r.idSede = m.idSede" +
+                "where sa.numero like ? " +
+                "and (? = -1 or sa.idSede = ?) " +
+                "and sa.estado = ? " +
+                "and (? = '' or sa.recursos = ?)";
+		pstm = conn.prepareStatement(sql);
+        pstm.setString(1, numero);
+        pstm.setInt(2, idSede);
+        pstm.setInt(3, idSede);
+        pstm.setInt(4, estado);
+        pstm.setString(5, recursos);
+        pstm.setString(6, recursos);
+		
+		log.info(">>>> " + pstm);
 
+		rs = pstm.executeQuery();
+		Sala objSala = null;
+		Sede objSede = null;
+		while(rs.next()) {
+			objSala = new Sala();
+			objSala.setIdSala(rs.getInt(1));
+			objSala.setNumero(rs.getString(2));
+			objSala.setPiso(rs.getInt(3));
+			objSala.setNumAlumnos(rs.getInt(4));
+			objSala.setRecursos(rs.getString(5));
+			objSala.setFechaRegistro(rs.getTimestamp(6));
+			objSala.setEstado(rs.getInt(7));
+
+			objSede = new Sede();
+			objSede.setIdSede(rs.getInt(8));
+			objSede.setNombre(rs.getString(9));
+			objSala.setSede(objSede);
+			
+			lista.add(objSala);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			if (pstm != null) pstm.close();
+			if (conn != null) conn.close();
+		} catch (Exception e2) {}
+	}
+	return lista;
+}
 }

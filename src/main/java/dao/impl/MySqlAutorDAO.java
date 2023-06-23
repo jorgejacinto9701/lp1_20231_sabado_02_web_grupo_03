@@ -56,9 +56,9 @@ public class MySqlAutorDAO implements AutorDAO{
 		ResultSet rs = null;
 		try {
 				conn = MySqlDBConexion.getConexion();
-				String sql = "select cl.*, ca.descripcion FROM autor cl "
-						+ "inner join grado_autor ca on cl.idGrado = ca.idGrado "
-						+ "where cl.nombres like = ? ";
+				String sql = "select a.*, ga.descripcion from autor a "
+						+ "inner join grado_autor ga on a.idGrado = ga.idGrado "
+						+ "where a.nombres like ? ";
 				pstm = conn.prepareStatement(sql);
 				pstm.setString(1, filtro);
 				
@@ -106,7 +106,8 @@ int salida = -1;
 		try {
 			conn = MySqlDBConexion.getConexion();
 		
-			String sql = "update autor set nombre=?, apellido=?,fechaNacimiento=?,telefono=?,estado=?, idGrado=? where idAutor=?";
+			String sql = "Update autor set nombres=?, apellidos=?, fechaNacimiento=?, telefono=?, estado=?, idGrado=? where idAutor=?";
+			
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, obj.getNombres());
 			pstm.setString(2, obj.getApellidos());
