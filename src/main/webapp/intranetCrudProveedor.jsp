@@ -110,13 +110,16 @@
 													<input class="form-control" id="id_reg_contacto" name="contacto" placeholder="Ingrese su nombre de Contacto" type="text" maxlength="100"/>
 		                                        </div>
 		                                    </div> 
-		                                      <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_estado">ESTADO</label>
+		                                        <div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_estado">Estado</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_reg_estado" name="estado" placeholder="Ingrese el Estado" type="text" maxlength="100"/>
+													<select class="form-control" id="id_reg_estado" name="estado">
+														<option value=" ">[Seleccione]</option>
+														<option value="1">Activo</option>
+														<option value="0">Inactivo</option>
+													</select>
 		                                        </div>
-		                                    </div> 
-		                                    
+		                                    </div> 	
 			                                <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_pais">Pais</label>
 		                                        <div class="col-lg-8">
