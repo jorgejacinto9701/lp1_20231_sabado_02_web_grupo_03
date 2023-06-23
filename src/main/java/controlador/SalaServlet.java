@@ -2,8 +2,6 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +13,6 @@ import com.google.gson.Gson;
 
 import dao.SalaDAO;
 import entity.Respuesta;
-import entity.Revista;
 import entity.Sala;
 import entity.Sede;
 import fabricas.Fabrica;
@@ -31,19 +28,19 @@ public class SalaServlet extends HttpServlet {
 			String vnumero = req.getParameter("numero");
 			String vpiso = req.getParameter("piso");
 			String vnumAlumnos = req.getParameter("numAlumnos");
-			String vrecurso = req.getParameter("recursos");
+			String vrecursos = req.getParameter("recursos");
 			String vestado = req.getParameter("estado");
 			String vsede = req.getParameter("sede");
 
 			Sede objSede = new Sede();
-			objSede.setIdSede(Integer.parseInt(vsede));
+			objSede.setIdSede(Integer.parseInt(vsede));         
 			
 			Sala objSala = new Sala();
 			objSala.setNumero(vnumero);
 			//objSala.setPiso(vpiso);
 			//objSala.setNumAlumnos(vpiso);
 			objSala.setRecursos(vpiso);
-			objSala.setEstado(1);
+			objSala.setEstado(1);  
 			
 			Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
 			SalaDAO dao = fabrica.getSalaDAO();
