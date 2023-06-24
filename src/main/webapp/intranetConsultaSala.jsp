@@ -75,6 +75,7 @@
 						<th>piso</th>
 						<th>numAlumnos</th>
 						<th>Recursos</th>
+						<th>Estado</th>
 						<th>Sede</th>
 						<th></th>
 					</tr>
@@ -177,6 +178,7 @@
 				agregarGrilla(data);
 			});
 		});
+		
 		
 		function agregarGrilla(lista){
 			 $('#id_table').DataTable().clear();

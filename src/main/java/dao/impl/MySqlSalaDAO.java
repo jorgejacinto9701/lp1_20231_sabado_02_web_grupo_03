@@ -208,11 +208,11 @@ public List<Sala> listaComplejaSala(String numero, int idSede, int estado, Strin
 	try {
 		conn = MySqlDBConexion.getConexion();
 		
-		String sql = "select r.*, m.nombre from sala r inner join sede m on r.idSede = m.idSede" +
-                "where sa.numero like ? " +
-                "and (? = -1 or sa.idSede = ?) " +
-                "and sa.estado = ? " +
-                "and (? = '' or sa.recursos = ?)";
+		String sql = "select r.*, m.nombre from sala r inner join sede m on r.idSede = m.idSede " +
+                "where r.numero like ? " +
+                "and (? = -1 or r.idSede = ?) " +
+                "and r.estado = ? " +
+                "and (? = '' or r.recursos = ?)";
 		pstm = conn.prepareStatement(sql);
         pstm.setString(1, numero);
         pstm.setInt(2, idSede);
