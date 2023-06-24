@@ -27,12 +27,13 @@ public class ProveedorServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
-		    String vrazonsocial = req.getParameter("nombres");
-		    String vruc = req.getParameter("apellido");
-		    String vdireccion = req.getParameter("telefono");
-		    String vcelular = req.getParameter("dni");
-		    String vcontacto = req.getParameter("correo");
-		    String vpais = req.getParameter("pais");
+		String vrazonsocial = req.getParameter("razonsocial");
+		String vruc = req.getParameter("ruc");
+		String vdireccion = req.getParameter("direccion");
+		String vcelular = req.getParameter("celular");
+		String vcontacto = req.getParameter("contacto");
+		String vpais = req.getParameter("pais");
+
 
 			Pais objPais = new Pais();
 			objPais.setIdPais(Integer.parseInt(vpais));

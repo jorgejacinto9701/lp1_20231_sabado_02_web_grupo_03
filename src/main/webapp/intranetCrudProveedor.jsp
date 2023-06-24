@@ -46,13 +46,13 @@
 				<thead style='background-color:#337ab7; color:white'>
 					<tr>
 						<th>ID</th>
-						<th>RAZON SOCIAL</th>
+						<th>Razón Social</th>
 						<th>RUC</th>
-						<th>DIRECCION</th>
-						<th>CELULAR</th>
-						<th>CONTACTO</th>
-						<th>ESTADO</th>
-						<th>PAIS</th>
+						<th>Dirección</th>
+						<th>Celular</th>
+						<th>Contacto</th>
+						<th>Estado</th>
+						<th>País</th>
 						<th></th>
 						<th></th>
 						<th></th>
@@ -81,7 +81,7 @@
 			                   			<input type="hidden" name="metodo" value="inserta">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_razons">RAZON SOCIAL</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_razons">Razón Social</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_reg_razons" name="razonsocial" placeholder="Ingrese la Razón Social" type="text" maxlength="200"/>
 		                                        </div>
@@ -93,19 +93,19 @@
 		                                        </div>
 		                                    </div> 
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_direccion">DIRECCION</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_direccion">Dirección</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_reg_direccion" name="direccion" placeholder="Ingrese su Dirección" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 
 										    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_celular">CELULAR</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_celular">Celular</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_reg_celular" name="celular" placeholder="Ingrese su número Celular" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div> 
 		                                 <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_contacto">CONTACTO</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_contacto">Contacto</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_reg_contacto" name="contacto" placeholder="Ingrese su nombre de Contacto" type="text" maxlength="100"/>
 		                                        </div>
@@ -121,7 +121,7 @@
 		                                        </div>
 		                                    </div> 	
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_pais">Pais</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_pais">País</label>
 		                                        <div class="col-lg-8">
 													<select class="form-control" id="id_reg_pais" name="Pais">
 														<option value=" ">[Seleccione]</option>
@@ -162,7 +162,7 @@
 			                   			<input type="hidden" name="idProveedor" id="idProveedor">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_razons">RAZON SOCIAL</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_razons">Razón Social</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_razons" name="razonsocial" placeholder="Ingrese la Razón Social" type="text" maxlength="200"/>
 		                                        </div>
@@ -174,19 +174,19 @@
 		                                        </div>
 		                                    </div> 
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_direccion">DIRECCION</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_direccion">Dirección</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_direccion" name="direccion" placeholder="Ingrese su Dirección" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 
 										    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_celular">CELULAR</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_celular">Celular</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_celular" name="celular" placeholder="Ingrese su número Celular" type="text" maxlength="9"/>
 		                                        </div>
 		                                    </div> 
 		                                 <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_contacto">CONTACTO</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_contacto">Contacto</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_contacto" name="contacto" placeholder="Ingrese su nombre de Contacto" type="text" maxlength="100"/>
 		                                        </div>
@@ -201,7 +201,7 @@
 		                                        </div>
 		                                    </div> 	 
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_pais">Pais</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_pais">País</label>
 		                                        <div class="col-lg-8">
 													<select class="form-control" id="id_act_pais" name="Pais">
 														<option value=" ">[Seleccione]</option>
@@ -390,12 +390,12 @@
 		        		selector: "#id_reg_razons",
 		        		validators : {
 		        			notEmpty: {
-		        				message: "La razon social es requerida"
+		        				message: "La Razón Social es requerida"
 		        			},
 		        			stringLength: {
 		        				min: 5,
 		        				max: 30,
-		        				message: 'La razon social debe tener entre 5 a 30 caracteres'
+		        				message: 'La Razon Social debe tener entre 5 a 30 caracteres'
 		        			},
 		        		}
 		        	},
@@ -404,11 +404,11 @@
 		        		selector: "#id_reg_ruc",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El ruc es requerido'
+		                        message: 'El RUC es requerido'
 		                    },
 		                    regexp: {
 		                        regexp: /^[0-9]{11}$/,
-		                        message: 'El ruc tiene 11 dígitos'
+		                        message: 'El RUC tiene 11 dígitos'
 		                    },
 		        		}
 		        	},
@@ -417,12 +417,12 @@
 		        		selector: "#id_reg_direccion",
 		        		validators : {
 		        			notEmpty: {
-		        				message: "La direccion es requerida"
+		        				message: "La Dirección es requerida"
 		        			},
 		        			stringLength: {
 		        				min: 5,
 		        				max: 30,
-		        				message: 'La direccion debe tener entre 5 a 30 caracteres'
+		        				message: 'La Dirección debe tener entre 5 a 30 caracteres'
 		        			},
 		        		}
 		        	},
@@ -435,7 +435,7 @@
 		                    },
 		                    regexp: {
 		                        regexp: /^[0-9]{9}$/,
-		                        message: 'El dni tiene 9 dígitos'
+		                        message: 'El celular es dígitos'
 		                    },
 		        		}
 		        	},
@@ -443,22 +443,36 @@
 		        		selector: "#id_reg_contacto",
 		        		validators : {
 		        			notEmpty: {
-		        				message: "El contacto es requerido"
+		        				message: "El Contacto es requerido"
 		        			},
 		        			stringLength: {
 		        				min: 3,
 		        				max: 30,
-		        				message: 'El nombre tiene entre 3 a 30 caracteres'
+		        				message: 'El Nombre tiene entre 3 a 30 caracteres'
 		        			},
 		        		}
 		        	},
+		        	estado : {
+		        		
+		        		selector: "#id_reg_estado",
+		        		
+		        		validators : {
+		        			
+		        			notEmpty: {
+		        				
+		                        message: 'El estado es obligatorio'
+		                        
+		                    },
+		        		}
+		        	
+		        	},  
 		        	
 		        	
 		        	tipo : {
 		        		selector: "#id_reg_pais",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El pais es requerido'
+		                        message: 'El País es requerido'
 		                    },
 		        		}
 		        	},        	
@@ -480,12 +494,12 @@
 		        		selector: "#id_act_razons",
 		        		validators : {
 		        			notEmpty: {
-		        				message: "La razon social es requerida"
+		        				message: "La Razón Social es requerida"
 		        			},
 		        			stringLength: {
 		        				min: 5,
 		        				max: 30,
-		        				message: 'La razon social debe tener entre 5 a 30 caracteres'
+		        				message: 'La Razón Social debe tener entre 5 a 30 caracteres'
 		        			},
 		        		}
 		        	},
@@ -494,11 +508,11 @@
 		        		selector: "#id_act_ruc",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El ruc es requerido'
+		                        message: 'El RUC es requerido'
 		                    },
 		                    regexp: {
 		                        regexp: /^[0-9]{11}$/,
-		                        message: 'El ruc tiene 11 dígitos'
+		                        message: 'El RUC tiene 11 dígitos'
 		                    },
 		        		}
 		        	},
@@ -507,12 +521,12 @@
 		        		selector: "#id_act_direccion",
 		        		validators : {
 		        			notEmpty: {
-		        				message: "La direccion es requerida"
+		        				message: "La Dirección es requerida"
 		        			},
 		        			stringLength: {
 		        				min: 5,
 		        				max: 30,
-		        				message: 'La direccion debe tener entre 5 a 30 caracteres'
+		        				message: 'La Dirección debe tener entre 5 a 30 caracteres'
 		        			},
 		        		}
 		        	},
@@ -521,11 +535,11 @@
 		        		selector: "#id_act_celular",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El celular es requerido'
+		                        message: 'El Celular es requerido'
 		                    },
 		                    regexp: {
 		                        regexp: /^[0-9]{9}$/,
-		                        message: 'El dni tiene 9 dígitos'
+		                        message: 'El Celular tiene 9 dígitos'
 		                    },
 		        		}
 		        	},
@@ -533,20 +547,34 @@
 		        		selector: "#id_act_contacto",
 		        		validators : {
 		        			notEmpty: {
-		        				message: "El contacto es requerido"
+		        				message: "El Contacto es requerido"
 		        			},
 		        			stringLength: {
 		        				min: 3,
 		        				max: 30,
-		        				message: 'El nombre tiene entre 3 a 30 caracteres'
+		        				message: 'El Nombre tiene entre 3 a 30 caracteres'
 		        			},
 		        		}
 		        	},
+		        	estado : {
+		        		
+		        		selector: "#id_act_estado",
+		        		
+		        		validators : {
+		        			
+		        			notEmpty: {
+		        				
+		                        message: 'El estado es obligatorio'
+		                        
+		                    },
+		        		}
+		        	
+		        	},  
 		        	tipo : {
 		        		selector: "#id_act_pais",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El pais es requerido'
+		                        message: 'El País es requerido'
 		                    },
 		        		}
 		        	},        	

@@ -29,7 +29,7 @@
 		
 		<div class="row" style="margin-top: 5%">
 		     <div class="col-md-4">
-		          <label class="control-label" for="id_razonsocial">Razon Social</label>
+		          <label class="control-label" for="id_razonsocial">Razón Social</label>
 		     </div>
 		     <div class="col-md-5">
 		          <input class="control-label" type="text" id="id_razonsocial">
@@ -38,7 +38,7 @@
 		
 		<div class="row" style="margin-top: 1%">
 		     <div class="col-md-4">
-		          <label class="control-label" for="id_pais">Pais</label>
+		          <label class="control-label" for="id_pais">País</label>
 		     </div>
 		     <div class="col-md-5">
 		          <select class="form-control" id="id_pais">
@@ -80,9 +80,9 @@
 				<thead style='background-color:#337ab7; color:white'>
 						<tr>
 							<th>idProveedor</th>
-							<th>Razon Social</th>
+							<th>Razón Social</th>
 							<th>ruc</th>
-							<th>Direccion</th>
+							<th>Dirección</th>
 							<th>Celular</th>
 							<th>Contacto</th>
 							<th>Fecha Registro</th>
@@ -116,19 +116,19 @@
 			                   			<input type="hidden" name="idProveedor" id="idProveedor" >
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_razonsocial">Razon Social</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_razonsocial">Razón Social</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_razonsocial" type="text" readonly="readonly"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_ruc">ruc</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_ruc">RUC</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_ruc" type="text" readonly="readonly"/>
 		                                        </div>
 		                                    </div> 
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_direccion">Direccion</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_direccion">Dirección</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_direccion" type="text" readonly="readonly"/>
 		                                        </div>
@@ -156,7 +156,7 @@
 		                                        </div>
 		                                    </div> 	 
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_pais">Pais</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_pais">País</label>
 		                                        <div class="col-lg-8">
 													<select class="form-control" id="id_act_pais" name="pais" disabled="disabled">
 														<option value=" ">[Seleccione]</option>

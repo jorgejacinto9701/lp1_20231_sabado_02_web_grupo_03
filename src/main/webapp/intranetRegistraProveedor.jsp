@@ -43,7 +43,7 @@
 				<input class="form-control" type="text" id="id_contacto" name="contacto" placeholder="Ingrese nombre de Contacto">
 			</div>	
 			<div class="form-group">
-				<label class="control-label" for="id_Pais"> Pais </label> <select
+				<label class="control-label" for="id_Pais"> País </label> <select
 					class="form-control" id="id_pais" name="pais">
 					<option value=" ">[Seleccione]</option>
 				</select>
@@ -76,12 +76,12 @@ $(document).ready(function() {
         		selector: "#id_razonsocial",
         		validators : {
         			notEmpty: {
-        				message: "La razon social es requerida"
+        				message: "La Razón social es requerida"
         			},
         			stringLength: {
         				min: 5,
         				max: 30,
-        				message: 'La razon social debe tener entre 5 a 30 caracteres'
+        				message: 'La Razón social debe tener entre 5 a 30 caracteres'
         			},
         		}
         	},
@@ -90,11 +90,11 @@ $(document).ready(function() {
         		selector: "#id_ruc",
         		validators : {
         			notEmpty: {
-                        message: 'El ruc es requerido'
+                        message: 'El RUC es requerido'
                     },
                     regexp: {
                         regexp: /^[0-9]{11}$/,
-                        message: 'El ruc tiene 11 dígitos'
+                        message: 'El RUC tiene 11 dígitos'
                     },
         		}
         	},
@@ -103,12 +103,12 @@ $(document).ready(function() {
         		selector: "#id_direccion",
         		validators : {
         			notEmpty: {
-        				message: "La direccion es requerida"
+        				message: "La Dirección es requerida"
         			},
         			stringLength: {
         				min: 5,
         				max: 30,
-        				message: 'La direccion debe tener entre 5 a 30 caracteres'
+        				message: 'La Dirección debe tener entre 5 a 30 caracteres'
         			},
         		}
         	},
@@ -117,11 +117,11 @@ $(document).ready(function() {
         		selector: "#id_celular",
         		validators : {
         			notEmpty: {
-                        message: 'El celular es requerido'
+                        message: 'El Celular es requerido'
                     },
                     regexp: {
                         regexp: /^[0-9]{9}$/,
-                        message: 'El dni tiene 9 dígitos'
+                        message: 'El Celular tiene 9 dígitos'
                     },
         		}
         	},
@@ -129,12 +129,12 @@ $(document).ready(function() {
         		selector: "#id_contacto",
         		validators : {
         			notEmpty: {
-        				message: "El contacto es requerido"
+        				message: "El Contacto es requerido"
         			},
         			stringLength: {
         				min: 3,
         				max: 30,
-        				message: 'El nombre tiene entre 3 a 30 caracteres'
+        				message: 'El nombre tiene entre 3 a 30 Caracteres'
         			},
         		}
         	},
@@ -142,11 +142,11 @@ $(document).ready(function() {
         		selector: "#id_estado",
         		validators : {
         			notEmpty: {
-        				message: "El estado es requerido"
+        				message: "El Estado es requerido"
         			},
         			regexp: {
                         regexp: /^[0-9]{1}$/,
-                        message: 'El estado tiene 1 digito'
+                        message: 'El Estado tiene 1 digito'
                     },
         		}
         	},
@@ -154,7 +154,7 @@ $(document).ready(function() {
         		selector: "#id_pais",
         		validators : {
         			notEmpty: {
-                        message: 'El pais es requerido'
+                        message: 'El País es requerido'
                     },
         		}
         	},        	
