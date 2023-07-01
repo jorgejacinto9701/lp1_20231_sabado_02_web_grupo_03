@@ -28,7 +28,7 @@
 		
 		<div class="row" style="margin-top: 5%">
 				<div class="col-md-4">
-					<label class="control-label" for="id_razonSocial">Razon Social</label>
+					<label class="control-label" for="id_razonSocial">Razón Social</label>
 				</div>
 				<div class="col-md-5">
 					<input	class="form-control" type="text" id="id_razonSocial">
@@ -54,7 +54,7 @@
 		</div>
 		<div class="row" style="margin-top: 1%">
 			<div class="col-md-3">
-				<label class="control-label" for="id_filtro">Fecha De Creacion</label> 
+				<label class="control-label" for="id_filtro">Fecha De Creación</label> 
 			</div>	
 			<div class="col-md-1"></div>
 			<div class="col-md-2">
@@ -71,13 +71,12 @@
 		</div>
 
 
-
 		<div class="row" style="margin-top: 4%">
 			<table id="id_table" class="table table-bordered table-hover table-condensed" >
 				<thead style='background-color:#337ab7; color:white'>
 					<tr>
 						<th>Código</th>
-						<th>Razon Social</th>
+						<th>Razón Social</th>
 						<th>Dirección</th>
 						<th>Ruc</th>
 						<th>Fecha De Creación</th>
@@ -114,13 +113,13 @@
 			                   			<input type="hidden" name="idRevista" id="idRevista" >
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_razonSocial">razonSocial</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_razonSocial">Razón Social</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_act_razonSocial" type="text" readonly="readonly"/>
 		                                        </div>
 		                                    </div> 	
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_direccion">direccion</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_direccion">Dirección</label>
 		                                        <div class="col-lg-8">
 												<input class="form-control" id="id_act_direccion" type="text" readonly="readonly"/>
 		                                        </div>
@@ -148,7 +147,7 @@
 		                                        </div>
 		                                    </div> 	 
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_pais">Pais</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_pais">País</label>
 		                                        <div class="col-lg-8">
 													<select class="form-control" id="id_act_pais" name="pais" disabled="disabled">
 														<option value=" ">[Seleccione]</option>

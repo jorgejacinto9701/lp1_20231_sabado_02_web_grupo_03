@@ -3,7 +3,6 @@ import java.util.List;
 
 import entity.Revista;
 public interface RevistaDAO {
-
 	public abstract int insertaRevista(Revista obj);
 	public abstract List<Revista> listaRevista(String filtro);
 	public abstract int actualizaRevista(Revista obj);

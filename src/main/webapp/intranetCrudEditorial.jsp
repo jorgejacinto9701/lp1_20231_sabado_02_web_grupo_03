@@ -25,10 +25,10 @@
 
 	<div class="row" style="margin-top: 5%">
 			<div class="col-md-3">
-				<label class="control-label" for="id_filtro">Razon Social</label> 
+				<label class="control-label" for="id_filtro">Razón Social</label> 
 			</div>	
 			<div class="col-md-6">
-				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese el nombre">
+				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese la Razón Social">
 			</div>	
 			<div class="col-md-1">
 				<button type="button" class="btn btn-primary" id="id_btn_filtro">Filtro</button>
@@ -44,12 +44,12 @@
 				<thead style='background-color:#337ab7; color:white'>
 					<tr>
 						<th>ID</th>
-						<th>Razon Social</th>
-						<th>Direccion</th>
-						<th>Ruc</th>
-						<th>Fecha de creacion</th>
+						<th>Razón Social</th>
+						<th>Dirección</th>
+						<th>RUC</th>
+						<th>Fecha de creación</th>
 						<th>Estado</th>
-						<th>Pais</th>
+						<th>País</th>
 						<th></th>
 						<th></th>
 						<th></th>
@@ -80,19 +80,19 @@
 			                   			<input type="hidden" name="metodo" value="inserta">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_razonSocial">Razon Social</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_razonSocial">Razón Social</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_reg_razonSocial" name="razonSocial" placeholder="Ingrese la Razon Social" type="text" maxlength="200"/>
+													<input class="form-control" id="id_reg_razonSocial" name="razonSocial" placeholder="Ingrese la razón social" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_direccion">Direccion</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_direccion">Dirección</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_reg_direccion" name="direccion" placeholder="Ingrese la direccion" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_ruc">Ruc</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_ruc">RUC</label>
 		                                        <div class="col-lg-8">
 													<input class="form-control" id="id_reg_ruc" name="ruc" placeholder="Ingrese el ruc" type="text" maxlength="11"/>
 		                                        </div>
@@ -147,27 +147,27 @@
 			                   			<input type="hidden" name="idEditorial" id="idEditorial">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_razonSocial">Razon Social</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_razonSocial">Razón Social</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_razonSocial" name="razonSocial" placeholder="Ingrese la razon social" type="text" maxlength="200"/>
+													<input class="form-control" id="id_act_razonSocial" name="razonSocial" placeholder="Ingrese la razón social" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_direccion">Direccion</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_direccion">Dirección</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_direccion" name="direccion" placeholder="Ingrese la direccion" type="text" maxlength="200"/>
+													<input class="form-control" id="id_act_direccion" name="direccion" placeholder="Ingrese la dirección" type="text" maxlength="200"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_ruc">Ruc</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_ruc">RUC</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_ruc" name="ruc" placeholder="Ingrese la ruc" type="text" maxlength="11"/>
+													<input class="form-control" id="id_act_ruc" name="ruc" placeholder="Ingrese el RUC" type="text" maxlength="11"/>
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group" >
 		                                        <label class="col-lg-3 control-label" for="id_act_fechaCreacion">Fecha de Creación</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_fechaCreacion" name="fechaCreacion" placeholder="Ingrese la fechaCreacion" type="date" />
+													<input class="form-control" id="id_act_fechaCreacion" name="fechaCreacion" placeholder="Ingrese la fecha creación" type="date" />
 		                                        </div>
 		                                    </div> 	
 		                                    <div class="form-group">

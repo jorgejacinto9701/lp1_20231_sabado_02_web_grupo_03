@@ -5,7 +5,6 @@ import java.util.List;
 
 import entity.Editorial;
 
-
 public interface EditorialDAO {
 	//consultas
 	public abstract List<Editorial> listaCompleja(String razonSocial, int idPais, int estado, Date fecInicio, Date fecFin);
