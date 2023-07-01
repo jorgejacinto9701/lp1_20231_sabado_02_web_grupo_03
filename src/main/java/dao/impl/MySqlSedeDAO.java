@@ -1,21 +1,19 @@
 package dao.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
-
 import dao.SedeDAO;
-
 import entity.Sede;
 import util.MySqlDBConexion;
 
-public class MysqlSede implements SedeDAO{
+public class MySqlSedeDAO implements SedeDAO{
 
-	private static Logger log = Logger.getLogger(MysqlSede.class.getName());
+	private static Logger log = Logger.getLogger(MySqlSedeDAO.class.getName());
 	
 	public List<Sede> listaSede() {
 		List<Sede> lista = new ArrayList<Sede>();
@@ -49,5 +47,3 @@ public class MysqlSede implements SedeDAO{
 		return lista;
 	}
 }
-
-

@@ -16,8 +16,6 @@
 <link rel="stylesheet" href="css/dataTables.bootstrap.min.css"/>
 <link rel="stylesheet" href="css/bootstrapValidator.css"/>
 
-
-
 <title>Sistemas - Jorge Jacinto Gutarra</title>
 </head>
 <body>
@@ -25,10 +23,13 @@
 <jsp:include page="intranetCabecera.jsp" />
 <div class="container" style="margin-top: 4%">
 
-		<h5>AUTOR:  RIVERS ONCOY  </h5>
+
+          <h4>Consulta Rivera oncoy </h4>
+          
+          
 		<div class="row" style="margin-top: 5%">
 				<div class="col-md-4">
-					<label class="control-label" for="id_numero">Numero</label>
+					<label class="control-label" for="id_numero">Número de Sala</label>
 				</div>
 				<div class="col-md-5">
 					<input	class="form-control" type="text" id="id_numero">
@@ -40,7 +41,7 @@
 				</div>
 				<div class="col-md-5">
 					<select	class="form-control" id="id_sede">
-						<option value="-1">Seleccione</option>
+						<option value="-1">[Seleccione]</option>
 					</select>
 				</div>
 		</div>
@@ -54,7 +55,7 @@
 		</div>
 		<div class="row" style="margin-top: 1%">
 				<div class="col-md-4">
-					<label class="control-label" for="id_recursos">Recurso</label>
+					<label class="control-label" for="id_recursos">Recursos</label>
 				</div>
 				<div class="col-md-5">
 					<input	class="form-control" type="text" id="id_recursos">
@@ -68,12 +69,12 @@
 
 		<div class="row" style="margin-top: 4%">
 			<table id="id_table" class="table table-bordered table-hover table-condensed" >
-				<thead style='background-color:#337ab7; color:white'>
+				<thead style='background-color:#337f00; color:white'>
 					<tr>
 						<th>ID</th>
-						<th>Numero</th>
-						<th>piso</th>
-						<th>numAlumnos</th>
+						<th>Número de Sala</th>
+						<th>Piso</th>
+						<th>Número de Alumnos</th>
 						<th>Recursos</th>
 						<th>Estado</th>
 						<th>Sede</th>
@@ -86,7 +87,7 @@
 
 		</div>
 		
-<!-- INICIO MODAL DE DETALLE-->
+		
 		<div class="modal fade" id="id_div_modal_ver" >
 			<div class="modal-dialog" style="width: 60%">
 					<div class="modal-content">
@@ -102,79 +103,87 @@
 			                   			<input type="hidden" name="metodo" value="actualiza">
 			                   			<input type="hidden" name="idSala" id="idSala" >
 			                   			<div class="panel-body">
-			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_act_numero">Numero</label>
-		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_numero" name="numero" type="text" readonly="readonly"/>
-		                                        </div>
-		                                    </div> 	
-											<div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_piso">Piso</label>
-		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_piso" name="piso" type="text" readonly="readonly"/>
-		                                        </div>
-		                                    </div> 	
-		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_numAlumnos">NumAlumnos</label>
-		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_numAlumnos" name="numAlumnos" type="text" readonly="readonly"/>
-		                                        </div>
-		                                    </div> 
-		                                    <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_recursos">Recursos</label>
-		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_recursos" name="recursos" type="text" readonly="readonly"/>
-		                                        </div>
-		                                    </div>  	
-		                                    <div class="form-group">
+			                            <div class="form-group" >
+		                                    <label class="col-lg-3 control-label" for="id_act_numero">Número de sala</label>
+		                                    <div class="col-lg-8">
+											<input class="form-control" id="id_act_numero" name="numero" type="text" readonly="readonly"/>
+		                                     </div>
+		                                 </div> 	
+										 <div class="form-group">
+		                                     <label class="col-lg-3 control-label" for="id_act_piso">Piso</label>
+		                                     <div class="col-lg-8">
+											 <input class="form-control" id="id_act_piso" name="piso" type="text" readonly="readonly"/>
+		                                 </div>
+		                                 </div> 	
+		                                 <div class="form-group">
+		                                      <label class="col-lg-3 control-label" for="id_act_numalum">Número de Alumnos</label>
+		                                      <div class="col-lg-8">
+											  <input class="form-control" id="id_act_numalum" name="numAlumnos" type="text" readonly="readonly"/>
+		                                 </div>
+		                                 </div> 
+		                                 <div class="form-group">
+		                                       <label class="col-lg-3 control-label" for="id_act_recursos">Recursos</label>
+		                                       <div class="col-lg-8">
+											   <input class="form-control" id="id_act_recursos" name="recursos" type="text" readonly="readonly"/>
+		                                       </div>
+		                                  </div>  	
+		                                  <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_estado">Estado</label>
 		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_act_estado" name="estado" disabled="disabled">
-														<option value=" ">[Seleccione]</option>
-														<option value="1">Activo</option>
-														<option value="0">Inactivo</option>
-													</select>
-		                                        </div>
-		                                    </div> 	 
-			                                <div class="form-group">
+												<select class="form-control" id="id_act_estado" name="estado" disabled="disabled">
+																<option value=" ">[Seleccione]</option>
+																					<option value="1">Activo</option>
+																					<option value="0">Inactivo</option>
+										  </select>
+		                                  </div>
+		                                  </div> 	 
+			                              <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_sede">Sede</label>
-		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_act_sede" name="sede" disabled="disabled">
-														<option value=" ">[Seleccione]</option>
-													</select>
-		                                        </div>
-		                                    </div> 	 
-		                                    <div class="form-group"  >
-		                                        <div class="col-lg-12" align="center">
-		                                        	<button type="button" style="width: 80px" id="id_btn_salir" class="btn btn-primary btn-sm" data-dismiss="modal">Salir</button>
-		                                        </div>
-		                                    </div>
+		                                  <div class="col-lg-8">
+												<select class="form-control" id="id_act_sede" name="sede" disabled="disabled">
+												<option value=" ">[Seleccione]</option>
+												</select>
+		                                  </div>
+		                                  </div> 	 
+		                                  <div class="form-group"  >
+		                                  <div class="col-lg-12" align="center">
+		                                        <button type="button" style="width: 80px" id="id_btn_salir" class="btn btn-primary btn-sm" data-dismiss="modal">Salir</button>
+		                                  </div>
+		                                  </div>
 			                             </div>
-			                             </form>
-			                        </div>
-			                   </div>
+			                         </form>
+			                    </div>
 			              </div>
-					</div>
+			         </div>
 				</div>
 			</div>
 		</div>
-<!-- FIN MODAL DE DETALLE -->
-</div>
+	</div>
 </div>
 
-<script type="text/javascript">	
-		$("#id_btn_filtro").click(function() {
-			var vnumero = $("#id_numero").val();
-			var vsede = $("#id_sede").val();
-			var vestado = $("#id_estado").is(":checked") ?  1 : 0;
-			var vrecursos = $("#id_recursos").val();
+<script type="text/javascript">
+		$.getJSON("cargarSedes", {}, function (data){
+			$.each(data, function(index, item){
+				$("#id_sede").append("<option value=" +  item.idSede +" >" +  item.nombre+ "</option>");
+				$("#id_act_sede").append("<option value=" +  item.idSede +" >" +  item.nombre+ "</option>");
+			});	
+		});	
+	
+					$("#id_btn_filtro").click(function() {
+						var vnumero = $("#id_numero").val();
+						var vsede = $("#id_sede").val();
+						var vestado = $("#id_estado").is(":checked") ?  1 : 0;
+						var vrecursos = $("#id_recursos").val();
 			
-			console.log(">> vnumero >> " + vnumero);
-			console.log(">> vsede >> " + vsede);
-			console.log(">> vestado >> " + vestado);
-			console.log(">> vrecursos >> " + vrecursos);
+						
+			       console.log(">> vnumero >> " + vnumero);
+			       console.log(">> vsede >> " + vsede);
+			       console.log(">> vrecursos >> " + vrecursos);
+			       console.log(">> vestado >> " + vestado);
+			      
 			
-			$.getJSON("listaComplejaSalaServlet", {"numero":vnumero,"sede":vsede, "estado": vestado, "recursos":vrecursos}, function(data) {
+			$.getJSON("listaSalaComplejoServlet", {"numero":vnumero,"sede":vsede, "estado": vestado, "recursos":vrecursos}, function(data)
+			{
 				agregarGrilla(data);
 			});
 		});
@@ -196,41 +205,34 @@
 			        scroller: {
 			            loadingIndicator: true
 			        },
-					columns:[
-						{data: "idSala",className:'text-center'},
-						{data: "numero",className:'text-center'},
-						{data: "piso",className:'text-center'},
-						{data: "numAlumnos",className:'text-center'},
-						{data: "recursos",className:'text-center'},
-						{data: function(row, type, val, meta){
-							return row.estado == 1 ? "Activo" : "Inactivo";  
-						},className:'text-center'},
-						{data: "sede.nombre",className:'text-center'},
-						{data: function(row, type, val, meta){
-							return '<button type="button" onClick="verFormulario(\'' + row.numero + '\',\'' + row.piso + '\',\'' + row.numAlumnos + '\',\'' +  row.recursos + '\',\'' +  row.estado + '\',\'' +  row.sede.idSede +'\');"  class="btn btn-info btn-sm">Ver</button>';  
-						},className:'text-center'},
-					]                                     
+		 columns:[
+			{data: "idSala",className:'text-center'},{data: "numero",className:'text-center'},
+			 {data: "piso",className:'text-center'},{data: "numAlumnos",className:'text-center'},
+			{data: "recursos",className:'text-center'},{data: function(row, type, val, meta){
+					return row.estado == 1 ? "Activo" : "Inactivo";  
+				},className:'text-center'},
+				{data: "sede.nombre",className:'text-center'},
+				{data: function(row, type, val, meta){
+					return '<button type="button" onClick="verFormulario(\'' + row.numero + '\',\'' + row.piso + '\',\'' + row.numAlumnos + '\',\'' +  row.recursos + '\',\'' +  row.estado + '\',\'' +  row.sede.idSede +'\');"  class="btn btn-info btn-sm">Ver</button>';  
+				},className:'text-center'},
+			]                                     
 			    });
-		}
-
-		$.getJSON("cargaSede", {}, function (data){
-			$.each(data, function(index, item){
-				$("#id_sede").append("<option value=" +  item.idSede +" >" +  item.nombre+ "</option>");
-				$("#id_act_sede").append("<option value=" +  item.idSede +" >" +  item.nombre+ "</option>");
-			});	
-		});
+		   }
 		
 		function verFormulario(numero, piso, numAlumnos, recursos, estado, sede){
 			console.log(" >>>   verFormulario ");
-			$("#id_act_numero").val(numero);
-			$("#id_act_piso").val(piso);
-			$("#id_act_numAlumnos").val(numAlumnos);
-			$("#id_act_recursos").val(recursos);
-			$("#id_act_estado").val(estado);
+			$("#id_div_modal_ver").modal("show");$("#id_act_numero").val(numero);
+			$("#id_act_piso").val(piso);$("#id_act_numalum").val(numAlumnos);
+			$("#id_act_recursos").val(recursos);$("#id_act_estado").val(estado);
 			$("#id_act_sede").val(sede);
-			$("#id_div_modal_ver").modal("show");
-		}
+		}  
 	</script>
 
 </body>
 </html>
+
+
+
+
+
+
