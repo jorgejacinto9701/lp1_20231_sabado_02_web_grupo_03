@@ -31,7 +31,7 @@ import dao.impl.MySqlSalaDAO;
 import dao.impl.MySqlSeparacionDAO;
 import dao.impl.MySqlTesisDAO;
 import dao.impl.MySqlUsuarioDAO;
-import dao.impl.MysqlSede;
+import dao.impl.MySqlSedeDAO;
 
 public class FabricaMysql extends Fabrica {
 
@@ -104,7 +104,7 @@ public class FabricaMysql extends Fabrica {
 
 	@Override
 	public SedeDAO getSedeDAO() {
-		return new MysqlSede();
+		return new MySqlSedeDAO() ;
 	}
 
 }

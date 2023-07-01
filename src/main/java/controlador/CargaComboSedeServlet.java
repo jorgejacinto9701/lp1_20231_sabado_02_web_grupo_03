@@ -16,7 +16,7 @@ import dao.SedeDAO;
 import entity.Sede;
 import fabricas.Fabrica;
 
-@WebServlet("/cargaSede")
+@WebServlet("/cargarSedes")
 public class CargaComboSedeServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -24,27 +24,18 @@ public class CargaComboSedeServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		
 		Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
 		SedeDAO dao = fabrica.getSedeDAO();
-		
 	
-		
-		
-		
 		List<Sede> lista = dao.listaSede();
-		
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(lista);
 
-		
 		resp.setContentType("application/json;charset=UTF-8");
 		
-		//4 Se envía al chrome
 		PrintWriter out = resp.getWriter();
 		out.println(json);
 	}
 
 }
-
